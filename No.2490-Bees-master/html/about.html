@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>关于</title>
+<link type="text/css" rel="stylesheet" href="css/common.css" />
+<link type="text/css" rel="stylesheet" href="css/about_us/css/about.css" />
+<script src="css/about_us/css/jquery.js"></script>
+<style type="text/css">
+
+    html{overflow-x:hidden;}
+
+.page-wrap{margin:0 auto;max-width:100%; width: 1200px;}
+
+
+.vfx-image-wrap{position:relative;display:inline-block;margin:0 auto;width:100%;height:520px;margin-bottom:40px;cursor:ew-resize;}
+
+    
+.before-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 50%;
+    overflow: hidden;
+}
+
+.after-image{position:absolute;top:0;left:0;z-index:0;}
+
+.divider-bar{position:absolute;width:2px;left:50%;top:-10px;bottom:-15px;background:white;height:535px;display:block;z-index:2;box-shadow:0 0 10px 1px rgba(0, 0, 0, 0.4);}
+
+</style>
+</head>
+
+<body>
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+
+
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>关于bees</span>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+        
+<div class="page-wrap">
+
+
+
+    <div class="vfx-image-wrap">
+
+        <div class="before-image"><img src="css/about_us/images/banner2.png" alt="" /></div>
+
+        <div class="after-image"><img src="css/about_us/images/banner.png" alt="" /></div>
+
+        <div class="divider-bar"></div>
+
+    </div>
+
+    
+
+<div class="clearfix"></div>
+
+
+</div>
+
+
+
+
+        
+       
+<div class="team_box">
+    <div class="team_title">
+    <h1>OurTeam</h1>
+    <h4>我们的团队</h4>
+    </div>
+    <div class="left_box">
+        <div class="team_l">
+        
+            <div class="team_l_box">
+                <img src="css/about_us/images//roy.png" alt="">
+                <img src="css/about_us/images/xiaobai.png" alt="">
+                <img src="css/about_us/images/xiaoge.png" alt="">
+                <img src="css/about_us/images/xiaoqiqi.png" alt="">
+                <img src="css/about_us/images/xiaowu.png" alt="">
+                <img src="css/about_us/images/yinyin.png" alt="">
+                <img src="css/about_us/images/roy.png" alt="">
+            </div>
+        </div>
+        <div class="left_j"></div>
+            
+        
+    </div>
+    <div class="right_box">
+    <div class="team_r">
+         
+        <div class="team_r_box">
+            <img src="css/about_us/images/less.png" alt="">
+                <img src="css/about_us/images/hanarder.png" alt="">
+                <img src="css/about_us/images/huoguo.png" alt="">
+                <img src="css/about_us/images/xiaoxin.png" alt="">
+                <img src="css/about_us/images/xiaoxiong.png" alt="">
+                <img src="css/about_us/images/hanarder.png" alt="">
+                <img src="css/about_us/images/less.png" alt="">
+        </div>
+    </div>
+        <div class="right_j"></div>
+    </div>
+<div class="clearfix"></div>
+</div>
+
+<div class="why_box">
+    <div class="why_title">
+    <h1>why choose us</h1>
+    <h2>为什么选择我们</h2>
+    </div>
+    <div class="img_box">
+        <img src="css/about_us/images/安全保障.png" alt="">
+        <img src="css/about_us/images/贴心服务.png" alt="">
+        <img src="css/about_us/images/高收益.png" alt="">
+        <img src="css/about_us/images/丰富选择.png" alt="">
+    </div>
+    <div class="why_text">
+    <p>我们同客户风雨相随，同舟共济，携手共进。
+
+我们用敏锐的洞察力、持续的创新力、国际化的视野以及高效的执行力，为客户创造品牌价值。
+</p></div>
+<div class="clearfix"></div>
+</div>
+<div class="contact_bg">
+    <div class="contact_box">
+        <h3>联系我们</h3>
+        <p>地址：武汉市硚口区解放大道634号新世界中心A座801室</p>
+        <p>电话: 027-83780308</p>
+        <p>招聘邮箱：wy@beescast.com</p>
+        <p>商务合作：business@beescast.com</p>
+        <p>意见反馈：feedback@beescast.com</p>
+        <p>@ Beescase Electronics International Limited. 保留所有权利</p>
+    </div>
+</div>
+<script type="text/javascript" src="css/about_us/css/jquery.js"></script>
+
+<script type="text/javascript" src="css/about_us/css/about.js"></script>
+<script>
+ //用定时器给按钮添加类
+
+    var n=0
+
+    //左箭头
+    $(".left_j").click(
+        function(){
+            if (n>0){
+                --n
+            }
+            $(".team_l_box").animate({left:-200*n},1000)
+            $(".team_r_box").animate({left:-200*n},1000)    
+        }
+    )
+    //右箭头
+    $(".right_j").click(
+        function(){
+            if (n<6){
+                ++n
+            }else{
+                $(".team_l_box").css({left:0})
+                $(".team_r_box").css({left:0})
+                n=0
+            }
+            $(".team_l_box").animate({left:-200*n},1000)
+            $(".team_r_box").animate({left:-200*n},1000)    
+        }
+    )
+
+    </script>
+    <!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+$("#about").attr("class", "active");
+      window.onload = function(){ 
+
+        var sessionKey = getCookieValue("sessionKey");
+        var userName = document.getElementById("userName");
+        
+         var userAvart = document.getElementById("userAvart");
+       
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+       
+            if(data.code==200){
+           
+               userName.innerHTML=data.data.response.result.nickname;
+                
+                var Avart ='<img src="'+data.data.response.result.avatar+'" /><span></span>';
+                userAvart.innerHTML=Avart;
+              
+              
+
+           }else{
+            alert(data.messages.message)
+            window.location.href="loginOut.html";
+           }
+        }
+    
+
+    });
+
+       
+    }
+    
+</script>
+</body>
+</html>

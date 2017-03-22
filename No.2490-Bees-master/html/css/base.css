@@ -1,0 +1,18 @@
+*{ margin: 0; padding: 0;}
+html,body{  font-family: '微软雅黑'; font-size: 12px; color: #333; background-color: #f7f4ef; }
+ul,ol,li{ list-style: none; }
+ul,ol,li,h1,h2,h3,h4,h5,p,dl,dt,dd{ margin: 0; }
+
+a:focus{ outline: none; }
+
+.container{ width: 1200px; margin: 0 auto; padding: 0;}
+.row{ margin-left: 0; margin-right: 0; }
+label.error{ font-weight: normal; }
+
+.placeholder{ color: #999 ;}
+
+.fl{ float: left;}
+.fr{ float: right;}
+
+
+.ui-widget-header .ui-icon{ background-image: url("../images/datepicker/ui-icons_444444_256x240.png"); }

@@ -1,0 +1,28 @@
+{
+  "resultList" : [
+    {
+      "name" : "飞翔的蓝鸟1",
+      "imgUrl" : "images/login/img_01.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    },
+    {
+      "name" : "飞翔的蓝鸟2",
+      "imgUrl" : "images/login/img_02.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    },
+    {
+      "name" : "飞翔的蓝鸟3",
+      "imgUrl" : "images/login/img_01.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    }
+  ]
+}

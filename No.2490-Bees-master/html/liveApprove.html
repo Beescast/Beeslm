@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - 主播认证 - 反馈意见 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="LOGO" /></a>
+        <ul class="nav">
+            <li><a href="index.html">首页</a><i></i></li>
+            <li><a href="buyMeal.html">套餐购买</a><i></i></li>
+            <li class="active"><a href="personal.html">个人页</a><i></i></li>
+            <li><a href="store.html">小商城</a><i></i></li>
+            <li><a href="offer.html">悬赏任务</a><i></i></li>
+            <li><a href="about.html">关于bees</a><i></i></li>
+        </ul>
+        <div class="fr">
+            <a href="javascript:;" class="top-head" id="userAvart"></a>
+            <div class="top-user-name" id="userName"></div>
+            <a href="loginOut.html" class="top-exit">退出</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>主播认证</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                   <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li><a href="personal.html">我的订单</a></li>
+                        <li><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li class="active"><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title"><h2>账户资料 <span>主播认证</span></h2></div>
+                    <div class="live-list">
+                        <table class="list">
+                            <thead>
+                                <tr>
+                                    <th>平台/房间信息</th>
+                                    <th>实名信息</th>
+                                    <th>认证图片</th>
+                                    <th>身份证正面</th>
+                                    <th>身份证反面</th>
+                                    <th>手持身份证照</th>
+                                </tr>
+                            </thead>
+                            <tbody id="live-list">
+                                <script type="text/html" id="tpl-live-list">
+                                    {{each resultList as value}}
+                                <tr>
+                                    <td class="left"><p>{{value.plat}}</p><p>{{value.liveRoom}}</p></td>
+                                    <td class="left"><p>{{value.truename}}</p><p>{{value.idCard}}</p></td>
+                                    <td><a class="id_img">{{if value.platPic}}<img src="{{value.platPic}}" alt="认证图片"/>{{/if}}</a></td>
+                                    <td><a class="id_img">{{if value.frontPic}}<img src="{{value.frontPic}}" alt="身份证正面"/>{{/if}}</a></td>
+                                    <td><a class="id_img">{{if value.backPic}}<img src="{{value.backPic}}" alt="身份证反面"/>{{/if}}</a></td>
+                                    <td><a class="id_img">{{if value.handPic}}<img src="{{value.handPic}}" alt="手持身份证照"/>{{/if}}</a></td>
+                                </tr>
+                                    {{/each}}
+                                </script>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/liveApprove.js"></script>
+
+<script type="text/javascript">
+    var headAvart = document.getElementById("headAvart");
+    var userAvart = document.getElementById("userAvart");
+    var avatar = getCookieValue("avatar");
+    var Avart ='<img src="'+avatar+'" /><span></span>';
+        userAvart.innerHTML=Avart;
+        headAvart.innerHTML=Avart; 
+        var nickname = getCookieValue("nickname");
+
+        var userName = document.getElementById("userName");
+        userName.innerHTML=nickname;
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{ padding-top: 106px; }
+*{ margin:0;padding: 0;}
+.clearfix{clear:both;}
+ul,li{list-style:none;}
+a{ text-decoration:none; color: black;}
+
+.header{ width: 100%; padding: 10px 0; box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .2); background-color: #FFF; position: fixed; top: 0; left: 0; z-index: 1000; }
+.container{ width:1200px; margin: 0 auto;}
+.logo{ float:left;}
+.nav{float:left; margin:35px 0 0 30px;}
+.nav li{float:left;margin-left: 30px;}
+
+.i{ display: block; width: 100%; height: 5px; background-color: #FFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	border-radius: 10px; margin-top: 10px;}
+.nav li a{ color: #a0a0a0; font-size:16px; }
+.nav li a:hover{ background: transparent; }
+.nav li:hover .i{ background-color: #ffcd2d; }
+.nav li.active .i{ background-color: #ffcd2d; }
+
+.position{ width: 100%; font-size: 14px; color:#b4b4b4; padding: 24px 0 20px 30px; background: url(../images/home.png)no-repeat left center;}
+
+
+
+.team_box{ width:100%;}
+.team_title{left:50%;margin-left:-70px; position: absolute; margin-top: 30px;color:#ffcd2d;}
+.team_title>h4{ text-align: center; text-indent:5px;}
+
+.left_box{ float:left; width:50%;background: black; height: 768px;}
+.right_box{float:left; width: 50%; background: white; height: 768px;}
+
+.left_j,.team_l{ float:right;}
+.left_j{ margin-top:375px; margin-right:114px;cursor:pointer; width: 117px; height: 18px; background-image: url(../images/left.png);}
+.left_j:hover{background-image: url(../images/left_h.png);}
+.right_j,.team_r{ float:left;}
+.right_j{ margin-top:375px; margin-left:114px;cursor:pointer;width: 117px; height: 18px;background-image: url(../images/right.png);}
+.right_j:hover{background-image: url(../images/right_h.png);}
+
+.team_l_box img{ float:left; width: 200px;}
+.team_l{ width: 200px; height: 560px; margin-top:126px; margin-right: 122px;position:relative; overflow: hidden;}
+.team_l_box{width:1400px;height: 560px; position: absolute;}
+		
+.team_r_box img{ float:left; width: 200px;}
+.team_r{ width: 200px; height: 560px;margin-top:126px; margin-left: 122px; position: relative; overflow: hidden;}
+.team_r_box{width:1400px;height: 560px; position: absolute;}
+
+.why_box{ width:736px; margin:60px auto; text-align: center;}
+.img_box{width:736px; margin: 0 auto;}
+.why_title{ width:600px; margin: 0 auto;}
+.why_text{ width:600px; margin: 0 auto;}
+.why_box>h1,.why_box>h2,.why_box>p{text-align:center;}
+.img_box>img{ margin: 40px 40px; float: left;}
+
+
+.contact_bg{ width: 100%; background-color:#ffca27;}
+.contact_box{width: 485px; margin:0 auto; padding: 58px 0;}
+.contact_box h3{ text-align:center; color: black; padding-bottom: 10px;}
+.contact_box p{ text-align:center;line-height: 25px; color:black;}

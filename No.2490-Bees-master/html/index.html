@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>首页 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+
+<body>
+<!-- header -->
+
+
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- 幻灯图 START PC -->
+<div id="carousel-index-banner" class="carousel slide">
+    <script type="text/html" id="tpl-index-banner">
+        {{if resultList.length > 1}}
+        <ol class="carousel-indicators" >
+            {{each resultList as value i}}
+            <li data-target="#carousel-index-banner" data-slide-to="{{i}}" {{if i == 0}}class="active"{{/if}}></li>
+            {{/each}}
+        </ol>
+        {{/if}}
+        <div class="carousel-inner" role="listbox">
+            {{each resultList as value i}}
+                <div class="item{{if i == 0}} active{{/if}}">
+                    <img src="{{value.imgUrl}}" class="img" alt="banner">
+                    <div class="info-box">
+                        <div class="inner">
+                            <h2>{{value.title}}</h2>
+                            <div class="desc">
+                                <p>{{value.content}}</p>
+                            </div>
+                            <a href="{{value.url}}" class="view-more">了解详情</a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        {{if resultList.length > 1}}
+            <a class="left carousel-control" href="#carousel-index-banner" role="button" data-slide="prev">
+                <span class="sr-only">上一张</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-index-banner" role="button" data-slide="next">
+                <span class="sr-only">下一张</span>
+            </a>
+        {{/if}}
+    </script>
+</div>
+<!-- 幻灯图 END -->
+<!-- mainer -->
+<div class="mainer index-bg1">
+    <div class="container">
+        <div class="m-title">BEES的优势</div>
+        <!-- m-content -->
+        <div class="m-content">
+            <dl class="index-adv">
+                <dt><img src="images/index/arrow_01.png" /></dt>
+                <dd>
+                    <h3>渠道专业</h3>
+                    <p>让您的笑容直达每个桌面</p>
+                </dd>
+            </dl>
+            <dl class="index-adv">
+                <dt><img src="images/index/arrow_02.png" /></dt>
+                <dd>
+                    <h3>精准推广</h3>
+                    <p>帮您找到错过的那些相遇</p>
+                </dd>
+            </dl>
+            <dl class="index-adv">
+                <dt><img src="images/index/arrow_03.png" /></dt>
+                <dd>
+                    <h3>反馈及时</h3>
+                    <p>完整的数据跟踪每个用户</p>
+                </dd>
+            </dl>
+            <dl class="index-adv">
+                <dt><img src="images/index/arrow_04.png" /></dt>
+                <dd>
+                    <h3>用心服务</h3>
+                    <p>您的需求 bees 帮您做到</p>
+                </dd>
+            </dl>
+            <div class="clearfix"></div>
+        </div>
+        <!-- /m-content -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- mainer -->
+<div class="mainer index-bg2">
+    <div class="container">
+        <div class="m-title">我们提供的服务</div>
+        <!-- m-content -->
+        <div class="m-content">
+            <div class="index-service is-bg1">
+                <div class="row">
+                    <div class="title-cell"><h2>推广套餐</h2></div>
+                </div>
+                <div class="row">
+                    <div class="description">
+                        <p>并且借助大数据运营模型，多维度建立目标受众的画像，利用重定向、相似用户定向和行为定向等方式，帮助客户获取更多用户，高效且有效地吸引并转化用户。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="index-service is-bg2">
+                <div class="row">
+                    <div class="title-cell"><h2>赏金任务</h2></div>
+                </div>
+                <div class="row">
+                    <div class="description">
+                        <p>并且借助大数据运营模型，多维度建立目标受众的画像，利用重定向、相似用户定向和行为定向等方式，帮助客户获取更多用户，高效且有效地吸引并转化用户。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="index-service is-bg3">
+                <div class="row">
+                    <div class="title-cell"><h2>主播数据分析</h2></div>
+                </div>
+                <div class="row">
+                    <div class="description">
+                        <p>并且借助大数据运营模型，多维度建立目标受众的画像，利用重定向、相似用户定向和行为定向等方式，帮助客户获取更多用户，高效且有效地吸引并转化用户。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- /m-content -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- mainer -->
+<div class="mainer index-bg1">
+    <div class="container">
+        <div class="m-title">主播们的评价</div>
+        <!-- m-content -->
+        <div class="m-content">
+            <!-- 主播们的评价幻灯图 START PC -->
+            <div id="lord-index-banner" class="carousel slide">
+                <script type="text/html" id="tpl-lord-index-banner">
+                    {{if resultList.length > 1}}
+                    <ol class="carousel-indicators" >
+                        {{each resultList as value i}}
+                        <li data-target="#lord-index-banner" data-slide-to="{{i}}" {{if i == 0}}class="active"{{/if}}></li>
+                        {{/each}}
+                    </ol>
+                    {{/if}}
+                    <div class="carousel-inner" role="listbox">
+                        {{each resultList as value i}}
+                        <div class="item{{if i == 0}} active{{/if}}">
+                            <div class="lord-box">
+                                <!-- lb-left -->
+                                <div class="lb-cell lb-left">
+                                    <dl class="head">
+                                        <dt><a href="{{value.url}}">{{if value.imgUrl}}<img src="{{value.imgUrl}}" />{{/if}}<span></span></a></dt>
+                                        <dd><a href="{{value.url}}">{{value.name}}</a></dd>
+                                    </dl>
+                                    <div class="desc">
+                                        <p>{{value.desc}}</p>
+                                        <p>{{value.roomNo}}</p>
+                                    </div>
+                                </div>
+                                <!-- /lb-left -->
+                                <!-- lb-right -->
+                                <div class="lb-cell lb-right">
+                                    <div class="outer">
+                                        <div class="inner">
+                                            <p>{{value.intro}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /lb-right -->
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </script>
+            </div>
+            <!-- 主播们的评价幻灯图 END -->
+        </div>
+        <!-- /m-content -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- mainer -->
+<div class="mainer index-bg2">
+    <div class="container">
+        <div class="m-title">心动不如行动</div>
+        <!-- m-content -->
+        <div class="m-content">
+            <a href="register.html" class="index-btn-register">注册加入</a>
+        </div>
+        <!-- /m-content -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<!-- footer -->
+<div class='footer'>
+    <!-- footer-top -->
+    <div class='footer-top'>
+        <div class='container'>
+            <!-- left -->
+            <div class='left'>
+                <p class=''><i style="font-size:10px;width: 30px">关于BEES</i> <span id="notices"> </span></p>
+                <p class='big'><i class='icon-tel'></i> 400-800-8010</p>
+                <p><i class='icon-email'></i> bees@126.com</p>
+                <p><i class='icon-qq'></i> 2943059518</p>
+                <p><i class='icon-addr'></i> 北京市朝阳区先锋大道</p>
+            </div>
+            <!-- /left -->
+            <!-- right -->
+            <div class='right'>
+                <dl>
+                    <dd>微信公众号</dd>
+                    <dt><img src='images/code_01.png' alt='微信公众号' /></dt>
+                </dl>
+                <dl>
+                    <dd>商业合作</dd>
+                    <dt><img src='images/code_02.png' alt='商业合作' /></dt>
+                </dl>
+            </div>
+            <!-- /right -->
+            <!-- friend-link -->
+            <dl class='friend-link'>
+                <dt>友情链接</dt>
+                <dd id = "links">
+                    <a href='http://www.douyutv.com'>斗鱼</a>
+                    <a href='http://www.huajiao.com/'>花椒直播</a>
+                </dd>
+            </dl>
+            <!-- /friend-link -->
+        </div>
+    </div>
+    <!-- /footer-top -->
+    <!-- footer-bottom -->
+    <div class='footer-bottom'>
+        <div class='container'>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/index.js"></script>
+
+
+<script type="text/javascript">
+
+$("#index").attr("class", "active");
+    
+
+function getUrlParam(name) {
+ var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+ var r = window.location.search.substr(1).match(reg); //匹配目标参数
+ if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+
+function get_open_id(access_token){
+        $.ajax({
+                async:false,
+                type:"GET",
+                url: "http://graph.qq.com/oauth2.0/me?access_token="+access_token,
+                dataType:"json",
+                success:function(data){
+                  alert(data.openid)
+                   
+                }
+            
+            });
+}  
+
+   window.onload = function(){
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/link/list",
+        dataType:"json",
+        success:function(data){
+
+            if(data.code==200){
+
+                var links="";
+
+             $.each(data.data.response.resultList,function(i,v){
+              
+                links +=  "<a href='"+v['href']+"'>"+v['title']+"</a>";
+             });
+      
+            $("#links").html(links);
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+    $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/notice/list?start=0&limit=1",
+        dataType:"json",
+        success:function(data){
+
+            if(data.code==200){
+
+                var links="";
+
+                    links ="<a href = notice_detail.html?notice_id="+data.data.response.resultList[0].id+">"+data.data.response.resultList[0].title+"</a>";
+            $("#notices").html(links);
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+        var code  = getUrlParam("code");
+        var state =getUrlParam('state');
+        if(code !="" && typeof(code)!="undefined"){
+
+             $.ajax({
+                async:false,
+                dataType: "jsonp",
+                type:"GET",
+                url:"http://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=101356049&client_secret=3decc0b185f1a0ad4b9db9e8ad63bd3c&code="+code+"&state="+state+"&redirect_uri=http://beeslm.com&state=ds",
+                dataType:"json",
+                success:function(data){
+                    get_open_id(data.access_token);
+                   
+                }
+            
+
+            });
+           
+        }
+
+}
+ 
+</script>
+</body>
+</html>

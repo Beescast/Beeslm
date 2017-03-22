@@ -1,0 +1,5 @@
+div.header{ border-bottom: 1px solid #DDD; }
+
+
+/*弹框*/
+.modal-content{ width: 600px; margin-left: auto; margin-right: auto; }

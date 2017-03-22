@@ -1,0 +1,12 @@
+{
+  "total" : 6,
+  "rows" : 5,
+  "offset" : 0,
+  "resultList" : [
+    { "aid" : 1, "dataTime" : "2016-07-11", "visitorType" : "游戏人生", "ageRegion" : "18－24岁", "gender" : "男"},
+    { "aid" : 2, "dataTime" : "2016-07-12", "visitorType" : "游戏人生2", "ageRegion" : "18－24岁", "gender" : "女"},
+    { "aid" : 3, "dataTime" : "2016-07-11", "visitorType" : "游戏人生", "ageRegion" : "18－24岁", "gender" : "男"},
+    { "aid" : 4, "dataTime" : "2016-07-12", "visitorType" : "游戏人生2", "ageRegion" : "18－24岁", "gender" : "女"},
+    { "aid" : 5, "dataTime" : "2016-07-11", "visitorType" : "游戏人生", "ageRegion" : "18－24岁", "gender" : "男"}
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>绑定页面 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+    <meta http-equiv="refresh" content="5">
+</head>
+<body>
+
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+ <script>
+
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+    window.onload = function(){ 
+        var sessionKey = getCookieValue("sessionKey");
+
+        var openid = GetQueryString('openid');
+        if(sessionKey==""){
+            $.ajax({
+            async:false,
+            type:"POST",
+            url:serverUrl+"/auth/unionLogin?openid="+openid+"&type=qq",
+            dataType:"json",
+            success:function(data){
+                if(data.code==200){
+                     addCookie("mobile",data.data.response.user.UserMobile,7,"/");  
+                    addCookie("UserId",data.data.response.user.UserId,7,"/"); 
+                    addCookie("sessionKey",data.data.response.sessionKey,7,"/");
+                    addCookie("nickname",data.data.response.nickname,7,"/");
+                    addCookie("avatar",data.data.response.avatar,7,"/");
+                   alert("绑定成功")
+                   window.location.href='account.html';
+
+               }else{
+                alert('请先登录BESS 绑定微信账号之后 才可用微信直接登录哦')
+                 window.location.href='login.html';
+               }
+            }
+        }); 
+        }else{
+           $.ajax({
+            async:false,
+            type:"POST",
+            url:serverUrl+"/auth/bindUnion?sessionKey="+sessionKey+"&openid="+openid+"&type=qq",
+            dataType:"json",
+            success:function(data){
+                if(data.code==200){
+                   alert("绑定成功")
+                   window.location.href='account.html';
+
+               }else{
+                alert(data.code)
+               }
+            }
+        }); 
+    }
+        
+
+       
+    }
+
+</script>
+</body>
+</html>

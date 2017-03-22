@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>套餐购买 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer minH8 buyMeal-wrapper">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>套餐购买</span>
+        </div>
+        <!-- /position -->
+        <!-- meal-cart -->
+        <div class="meal-cart">
+            <div class="meal-title">购买清单</div>
+            <form action="#" method="post" class="buy-cart">
+                <table class="cart">
+                    <thead>
+                        <tr>
+                            <th>套餐</th>
+                            <th>名称/规格</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="pic"></td>
+                            <td  id="name"></td>
+                            <td id ="goodsPrice"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" >
+                                <p class="order-price" id="orderPrice"></p>
+                                <p class="order-number" data="" id="orderId"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: left;">选择支付方式</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="pay-type">
+                                    <a href="javascript:;"><img src="images/meal/btn_wx.png"></a>
+                                    <a href="javascript:;" onclick="alipayFunc()"><img src="images/meal/btn_pay.png"></a>
+                                    <a href="javascript:;" class="comment" data-toggle="modal" data-target="#packagePay" data-price="100" data-id="11"><img src="images/meal/btn_pg.png"></a>
+                                </div>
+                                <p class="pay-price" id="dealPrice"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!-- /meal-cart -->
+    </div>
+</div>
+<!-- /mainer -->
+
+<!-- 钱包支付 START -->
+<div class="prompt-box" title="钱包支付,支付完成请到我的订单中查看订单状态哦" id="packagePay">
+    <form action="#" method="post" class="packagePay">
+        <dl>
+            <dt>订单金额：</dt>
+            <dd>￥<span id="viewPayPrice">300.00</span></dd>
+        </dl>
+        <dl>
+            <dt>钱包余额：</dt>
+            <dd>
+                <a href="javascript:;" class="link">余额不够？请充值</a>
+                ￥<span id="lastPackagePrice">3900.00</span>
+            </dd>
+        </dl>
+        <input type="password" name="payPassword" value="" placeholder="支付密码" class="ipt-pwd" />
+        <div class="">
+            <a href="payPwd.html" class="link">请先设置支付密码</a>
+            <div class="error"></div>
+            <div class="clearfix"></div>
+        </div>
+        <input type="hidden" name="price" value="" id="payPriceInput" />
+        <input type="hidden" name="payId" value="" id="payPriceId" />
+        <button type="submit" class="ipt-submit">支&nbsp;&nbsp;&nbsp;&nbsp;付</button>
+    </form>
+</div>
+<!-- 钱包支付 END -->
+
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/myOrder.js"></script>
+
+<script type="text/javascript">
+
+
+    function GetQueryString(name)
+    {
+         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+         var r = window.location.search.substr(1).match(reg);
+         if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    window.onload = function(){ 
+       
+         var price_id = GetQueryString('price_id');
+         var mealPrice = document.getElementById("mealPrice"); 
+         if(price_id==null){
+             price_id =1;
+         } 
+         var packageId = GetQueryString('packageId');  
+
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/package/singlePrice?id="+price_id,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+                pricename = data.data.response.result.name;
+                packageId = data.data.response.result.packageId;  
+           }else{
+            alert(data.code)
+           }
+        }
+        });
+        var orderId = document.getElementById("orderId");
+        var name = document.getElementById("name");
+        var orderPrice = document.getElementById("orderPrice");
+       var goodsPrice = document.getElementById("goodsPrice");
+       var dealPrice = document.getElementById("dealPrice");
+         var pic = document.getElementById("pic");
+        var sessionKey = getCookieValue("sessionKey"); 
+
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/order/add?packageId="+packageId+"&packagePriceId="+price_id+"&sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+               var orderNum ='订单号：'+data.data.response.orderId;
+               var orderId = data.data.response.orderId;
+               document.getElementById("orderId").setAttribute("data",orderId);
+
+           }else{
+            alert(data.code)
+           }
+        }
+    });
+
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/package/info?id="+packageId,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+               name.innerHTML=data.data.response.result.name+"/"+pricename;
+              
+               var img ='<a class="goods"><img style="height: 90px; width: 120px;"src="'+data.data.response.result.pic+'" alt="1" /></a>';
+
+               pic.innerHTML=img;
+                    
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+        
+        var price = GetQueryString('price');
+
+         orderPrice.innerHTML=" 订单总计：<span class='price'> ￥"+price+"</span>";
+         goodsPrice.innerHTML="  <p class='price'>￥"+price+"</p>";
+         dealPrice.innerHTML="应付金额：￥"+price+"";
+         
+        
+         //document.getElementById("links").href="buyMeal_cart.html?price_id="+price_id+"&price="+price+"";
+
+     
+}
+       function alipayFunc(){
+            var orderId = document.getElementById("orderId").getAttribute("data");
+             $.ajax({
+                async:false,
+                type:"GET",
+                url:serverUrl+"/pay/alipay.html?orderId="+orderId,
+                dataType:"json",
+                success:function(data){
+                    if(data.code==200){
+                     
+                            
+                   }else{
+                    alert(data.code)
+                   }
+                }
+            
+
+            });
+        }
+</script>
+</body>
+</html>

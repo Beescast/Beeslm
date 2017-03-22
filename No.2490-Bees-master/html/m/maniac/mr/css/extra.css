@@ -1,0 +1,159 @@
+/*弹框的css*/
+.dc-title{ 
+	background: #F2F2F2;
+	height: 31px; 
+	line-height:30px;
+	width: 398px; 
+	border: solid 1px #b1b0b0; 
+	overflow: hidden;
+	zoom:1; 
+	clear: both;
+	margin:0 auto;
+}
+.dc-title strong{ 
+	color:#666666;
+	font-size:14px;
+	float:left; 
+	display: inline;
+	margin-left:10px;
+	float:left;
+}
+.dc-title span{ 
+	float:right;
+	margin:8px 10px 0 0; 
+}
+.dc-content{ 
+	width:398px;
+	border-left: solid 1px #b1b0b0;
+	border-right: solid 1px #b1b0b0;
+	padding:5px 0;
+	margin:0 auto; 
+	background: #fff;
+}
+.dc-content p{ 
+	font-size:12px; 
+	text-align: left;
+	width:356px; 
+	line-height: 23px;
+	color:#585656;
+	margin:0 auto;
+}
+.dc-content table{ 
+	width:356px; 
+	text-align: left;
+	margin:0 auto;
+	table-layout:fixed ;
+}
+.dc-content td{ 
+	padding: 3px 0; 
+}
+.red{ 
+	color: red; 
+}
+.dc-bm{ 
+	width: 398px;
+	border: solid 1px #b1b0b0; 
+	text-align: right;
+	height:28px;
+	padding-top:5px; 
+	background: #eeeeee;
+	margin:0 auto; 
+}
+.dc-boder{ 
+	border: solid 1px #afadad; 
+}
+.rbs1{ 
+	display: inline;
+	padding:0 10px;
+}
+.gbs1{
+	display: inline;
+	padding:0 10px; 
+}
+.rb,.gb{
+	font-size:12px; 
+	border-left:1px solid #fff; 
+	border-top:1px solid #fff; 
+	border-right:1px solid #999999; 
+	border-bottom:1px solid #999999; 
+	cursor:pointer;
+	padding:0 10px;
+	height:21px;
+	line-height:19px;
+}
+.rb{  
+	background:#F2F2F2;
+	color:#666;  
+}
+.gb{  
+	background: #eeeeee;
+	color:F2F2F2;
+}
+.modal-body{ 
+	font-size:15px;
+}
+.modal2 p{
+	margin:15px;
+}
+.bounced{
+	z-index: 1000; 
+	border: medium none; 
+	margin: 0px; 
+	padding: 0px; 
+	width: 100%; 
+	height: 100%; 
+	top: 0px; 
+	left: 0px; 
+	background-color: rgb(0, 0, 0); 
+	opacity: 0.8; 
+	cursor: wait; 
+	position: fixed;
+}
+.bounced_con{
+	z-index: 1011; 
+	position: fixed; 
+	padding: 0px; 
+	margin: 0px; 
+	width: 300px; 
+	top: 40%; 
+	left: 35%; 
+	text-align: center; 
+	color: rgb(0, 0, 0); 
+	border: 0px solid rgb(0, 102, 255); 
+	cursor: wait; 
+	height: 200px;
+}
+/*弹框的css*/
+
+/*table_all的css*/
+.content h1 { 
+	font-size: 24px; 
+	line-height: 180%; 
+	margin: 10px 0px; 
+}
+.table td, .table th { 
+	text-align:center; 
+}
+@media print
+{
+    .noprint {display:none;}
+}
+.table tr td:last-child{
+	width: 200px; 
+	white-space: nowrap;
+}
+
+/*TAP的css*/
+.store_tap{
+	font-family: "微软雅黑";
+	margin: 10px;
+	border-bottom:1px solid #27ae60;
+}
+.nav-tabs>li.active2>a, .nav-tabs>li.active2>a:hover, .nav-tabs>li.active2>a:focus{
+	background: #27ae60;
+	border: 1px solid #27ae60;
+	color: #fff;
+}
+.store_tap>li{
+	margin-bottom: 0;
+}

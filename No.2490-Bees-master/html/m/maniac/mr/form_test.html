@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <title>后台管理</title>
+		
+		
+<!-- Maniac stylesheets -->
+<link rel="stylesheet" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" href="../css/font-awesome.min.css" />
+<link rel="stylesheet" href="../css/animate/animate.min.css" />
+<link rel="stylesheet" href="../css/bootstrapValidator/bootstrapValidator.min.css" />
+<link rel="stylesheet" href="../css/iCheck/all.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="./css/extra.css" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<style type="text/css">
+
+</style>		
+
+<link rel="stylesheet" href="../css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"  />
+<link rel="stylesheet" href="../css/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+<link rel="stylesheet" href="../css/colorpicker/bootstrap-colorpicker.min.css"/>
+<link rel="stylesheet" href="../css/timepicker/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="../css/extra.css" />
+<link rel="stylesheet" href="../css/datepicker/datepicker.css" />
+<style type="text/css">
+
+</style>
+
+
+
+	</head>
+	<body class="fixed">
+        
+
+<!-- Header -->
+        <header>
+			<a href="/admin/" class="logo"><i class="fa fa-bolt"></i> <span>管理平台</span></a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="navbar-btn sidebar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+				<div class="navbar-header">
+                    <form role="search" class="navbar-form" method="post" action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+				</div>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                         
+						 
+						 
+						
+                        <li class="dropdown widget-user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="/plug/maniac/assets/img/avatar.jpg" class="pull-left" alt="image" />
+                                <span>cc <i class="fa fa-caret-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+								<li>
+									<a href="/admin/customer/changePassword"><i class="fa fa-user"></i>修改密码</a>
+								</li>
+								<li class="footer">
+									<a href="javascript:onLogout()"><i class="fa fa-power-off"></i>Logout</a>
+								</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+		<!-- /.header -->
+
+<form name="logoutForm" action="/admin" method="post">
+<input type="hidden" name="_method" value="delete"/>
+</form>
+<script>
+    function onLogout() {
+        if (!confirm("确定要退出吗?")) {
+            return;
+        }
+        document.logoutForm.submit();
+    }
+</script>
+		 
+		<!-- wrapper -->
+        <div class="wrapper">
+            
+            
+
+<div class="leftside">
+	<div class="sidebar">
+		<div class="user-box">
+            <div class="avatar">
+                <img src="http://51boat.cc/upload/avatar/default.png" alt="" />
+            </div>
+            <div class="details">
+                <p>cc</p>
+                <span class="position">商户管理员</span>
+            </div>
+            <div class="button">
+                <a href="http://51boat.cc/m/logout.php"><i class="fa fa-power-off"></i></a>
+            </div>
+        </div>
+		<ul class="sidebar-menu">
+			<li id="adminIndex"><a href="/admin/"> <i class="fa fa-home"></i>
+					<span>主页</span>
+			</a></li>
+
+			
+
+
+
+
+
+    
+				<li id="checkManager"  class="sub-nav"><a href="#"> <i class="glyphicon glyphicon-credit-card"></i>
+						<span>验证管理</span> <i class="fa fa-angle-right pull-right"></i>
+				</a>
+					<ul class="sub-menu">
+
+						<li id="checkCard"><a href="/admin/customer/checkCard" title="卡券验证">卡券验证</a></li>
+						<li id= "checkList"><a href="/admin/customer/checkList" title="验证记录">验证记录</a></li>
+					</ul></li>
+				<li id="goodsManager" class="sub-nav"><a href="#"> <i class="glyphicon glyphicon-inbox"></i>
+						<span>商品管理</span> <i class="fa fa-angle-right pull-right"></i>
+				</a>
+					<ul class="sub-menu">
+						 
+						  
+						<li id="combo"><a href="/admin/customer/goodsList?goodsType=1" title="套餐">套餐</a></li>
+						 
+						  
+						<li id="chit"><a href="/admin/customer/goodsList?goodsType=2" title="代金券">代金券</a></li>
+						 
+						  
+						<li id="make"><a href="/admin/customer/goodsList4?goodsType=4" title="点餐">点餐</a></li>
+						 
+						  
+						<li id="seat"><a href="/admin/customer/goodsList3?goodsType=3" title="订座">订座</a></li>
+						 
+					</ul></li>
+
+				<!-- <li><a href="/admin/customer/users"> <i class="fa fa-folder"></i>
+						<span>用户管理</span>
+				</a></li> -->
+				 <li id="orderList"><a href="/admin/customer/orderList"> <i class="glyphicon glyphicon-shopping-cart"></i>
+						<span>订单管理</span>
+				</a></li> 
+				 <li id="commentList"><a href="/admin/customer/commentList"> <i class="glyphicon glyphicon-comment"></i>
+						<span>评价管理</span>
+				</a></li> 
+					 <li id="marketList"><a href="/admin/customer/marketList"> <i class="glyphicon glyphicon-thumbs-up"></i>
+						<span>营销数据</span>
+				</a></li> 
+					<li id="financeManager" class="sub-nav"><a href="#"> <i class="glyphicon glyphicon-usd"></i>
+						<span>财务管理</span> <i class="fa fa-angle-right pull-right"></i>
+				</a>
+					<ul class="sub-menu">
+
+						<li id="everyDay"><a href="/admin/customer/financeList" title="每日收据">每日收据</a></li>
+						<li><a href="/admin/customer/financeList" title="付款记录">付款记录</a></li>
+						<li><a href="/admin/customer/financeList" title="银行账户管理">银行账户管理</a></li>
+
+					</ul></li>
+				<li id="userManager" class="sub-nav"><a href="/admin/customer/users"> <i class="glyphicon glyphicon-user"></i>
+						<span>商户管理</span> <i class="fa fa-angle-right pull-right"></i>
+				</a>
+					<ul class="sub-menu">
+
+						<li id="info0"><a href="/admin/customer/info0" title="商家信息列表">商户基本信息维护</a></li>
+						<li id="setWifi"><a href="/admin/customer/setWifi" title="WIFI设置">WIFI设置</a></li>
+					</ul></li>
+
+				<li id="customerManager" class="sub-nav"><a href="#"> <i class="glyphicon glyphicon-cog"></i>
+						<span>账号管理</span> <i class="fa fa-angle-right pull-right"></i>
+				</a>
+					<ul class="sub-menu">
+
+						<li id="changePassword"><a href="/admin/customer/changePassword" title="商家信息列表">修改密码</a></li>
+
+					</ul></li>
+
+			
+
+
+		</ul>
+
+	</div>
+</div>
+
+            <div class="rightside">
+
+
+                
+
+            
+             
+        </div>
+        
+        
+        </div><!-- /.wrapper -->
+
+<div >
+	<div class="blockUI blockOverlay bounced">
+		<div class="blockUI blockMsg blockPage bounced_con">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel" style="text-align:left"><i class="fa fa-exclamation-circle"></i> 系统提示</h4>
+				</div>
+				<div class="modal-body modal2">
+					<p>Wifi编号不能为空</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger pull-right"  data-dismiss="modal">取消</button>
+					<button type="button" onclick="modal_submit()" class="btn btn-success pull-left" id="add-new-event" data-dismiss="modal">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
+		 
+		
+<!-- Javascript -->
+<script src="/plug/maniac/assets../js//plugins/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/jquery-ui/jquery-ui-1.10.4.min.js" type="text/javascript"></script>
+<!-- Bootstrap -->
+<script src="/plug/maniac/assets../js//plugins/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+<!-- Interface -->
+<script src="/plug/maniac/assets../js//plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/pace/pace.min.js" type="text/javascript"></script>
+<!-- Forms -->
+<script src="/plug/maniac/assets../js//plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/bootstrap-file-input/bootstrap-file-input.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/timepicker/bootstrap-timepicker.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/colorpicker/bootstrap-colorpicker.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/datepicker/datepicker.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script src="/plug/maniac/assets../js//custom.js" type="text/javascript"></script>
+<script src="/plug/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#btnSubmit').click(function(e){
+submitAjaxFormNow("#adminForm"); 
+});
+//Inputmask
+$(":input").inputmask();
+//Date picker
+$('.datepicker-input').datepicker();
+//Bootstrap WYSIHTML5
+$(".bs-texteditor").wysihtml5(); 
+//TagsInput
+$("[data-toggle='tags']").tagsinput({ 
+tagClass: function(item) { 
+return 'label label-primary';
+} 
+});
+//Colorpicker
+$(".colorpicker").colorpicker();
+//File Input
+$('.file-inputs').bootstrapFileInput();
+//iCheck
+$("input[type='checkbox'], input[type='radio']").iCheck({
+checkboxClass: 'icheckbox_minimal',
+radioClass: 'iradio_minimal'
+});
+});
+</script>
+
+	<script type="text/javascript">
+		
+			$(document).ready(function(){
+				
+				 $("#userManager").removeClass();
+				 $("#userManager").addClass("active sub-nav");	
+				 $("#userManager").find("ul").show();
+				 $("#userManager").find("i:last").removeClass();
+				 $("#userManager").find("i:last").addClass("fa pull-right fa-angle-down");	
+				 $("#setWifi").addClass("active");	
+			 
+				 
+			});
+		</script> 
+	   
+	   
+
+<form name="deleteForm" class="ajaxForm" id="deleteForm" action="" method="post">
+  	<input type="hidden" name="_method" value="delete"/>
+</form>
+
+<script type="text/javascript" src="../js//jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript" src="../js//jquery.form.js"></script>
+<script type="text/javascript" src="../js//blockui-2.70/jquery.blockUI.js"></script>
+<script src="../js//jquery.submit.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js//jquery.submitimp.js"></script>
+<script src="../js//admin/admin.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js//util.js" ></script>
+</body></html>

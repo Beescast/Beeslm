@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>悬赏任务 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer minH8">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>悬赏任务</span>
+        </div>
+        <!-- /position -->
+        <!-- middle-wrapper -->
+        <div class="middle-wrapper">
+            <div class="middle-title">赏金任务</div>
+            <!-- offer-top -->
+            <div class="offer-top" >
+            <dl>
+                 <dl>
+                        <dt>任务状态</dt>
+                        <dd>
+                            
+                            <a  href="offer.html?1=1">全部任务</a>
+                             <a class="aa" href="?status=0">招募中</a>
+                              <a class="aa" data="?status=1" href="?status=1">招募完成</a>
+                            
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>报名状态</dt>
+                        <dd>
+                            
+                            <a  href="offer.html?1=1">全部状态</a>
+                             <a class="bb" href="?sign=1">已报名</a>
+                              <a class="bb" data="?sign=0" href="?sign=0">未报名</a>
+                            
+                        </dd>
+                    </dl>
+                     <dl>
+                        <dt>任务类型</dt>
+
+                        <dd id ="offer-top">
+                             <script type="text/html" id="tpl-offer-type">
+                               {{each resultList as value}}
+                                <a class="cc" data="?catId={{value.id}}" href="{{value.href}}">{{value.name}}</a>
+                                {{/each}}
+                            </script>
+                            
+                            <a  href="offer.html?1=1">全部类型</a>
+                             <a class="cc" data="?catId=1" href="?catId=1">我关注的</a>
+                        </dd>
+                    </dl>
+            </dl>
+                
+            </div>
+            <!-- /offer-top -->
+            <!-- offer-list -->
+            <div class="offer-list">
+                <table id="offer-list">
+                    <script type="text/html" id="tpl-offer-list">
+                    <tr>
+                        <th class="wd_01">任务类型/任务说明</th>
+                        <th class="wd_02">时间</th>
+                        <th class="wd_03">任务总赏金</th>
+                        <th class="wd_04">需要人数</th>
+                        <th class="wd_05">任务状态</th>
+                        <th class="wd_06">报名</th>
+                    </tr>
+                        {{if resultList && resultList.length > 0}}
+                            {{each resultList as value}}
+                            <tr>
+                                <td>
+                                    <h3><a href="{{value.url}}">{{value.catName}}</a></h3>
+                                </td>
+                                <td class="date">{{value.startTime}}</td>
+                                <td rowspan="2">{{value.price}}</td>
+                                <td rowspan="2">{{value.num}}</td>
+                                <td rowspan="2">{{value.statusText}}</td>
+                                <td rowspan="2">
+                                    {{if value.sign == 0}}
+
+                                    {{if value.statusText == '招募完成'}}
+                                    <p class="gray">未报名</p>
+                                    {{else}}
+                                     <a class="orange" href="{{value.applyUrl}}" data-toggle="modal" data-target="#moneyReward" data-id={{value.id}} >参与报名</a>
+                                     {{/if}}
+                                   
+                                    {{else}}
+                                    <p class="gray">已报名</p>
+                                    {{/if}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="desc">{{value.illustration}}</td>
+                            </tr>
+                            {{/each}}
+                        {{else}}
+                        <tr>
+                            <td colspan="6"><p class="emptyInfo">未找到任何任务</p></td>
+                        </tr>
+                        {{/if}}
+                    </script>
+                </table>
+            </div>
+            <!-- /offer-list -->
+        </div>
+        <!-- /middle-wrapper -->
+        <div class="paging-box" id="modePage"></div>
+    </div>
+</div>
+<!-- /mainer -->
+
+<div class="prompt-box" title="提示" id="moneyReward">
+    <div class="hint-info">
+        <form action="#" method="post" id="privilege-form" class="moneyReward">
+        <h2>确定报名赏金任务？</h2>
+        <br />
+
+        <input type="hidden" name="taskId" value="" id="taskId" />
+        <input type="hidden" name="sessionKey" value='' id='sessionKey'/>
+
+        <button type="submit" class="btn btn-normal" >确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+        </form>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/offer.js"></script>
+<script type="text/javascript" src="js/prompt.js"></script>
+<script type="text/javascript">
+$("#offer").attr("class", "active");
+      window.onload = function(){ 
+
+        var sessionKey = getCookieValue("sessionKey");
+
+        var userName = document.getElementById("userName");
+        
+         var userAvart = document.getElementById("userAvart");
+       
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+       
+            if(data.code==200){
+           
+               userName.innerHTML=data.data.response.result.nickname;
+                
+                var Avart ='<img src="'+data.data.response.result.avatar+'" /><span></span>';
+                userAvart.innerHTML=Avart;
+              
+              
+
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+      
+    }
+
+
+function getUrlParam(name) {
+ var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+ var r = window.location.search.substr(1).match(reg); //匹配目标参数
+ if (r != null) return unescape(r[2]); return null; //返回参数值
+}
+$(document).ready(function(){
+
+    if(getUrlParam("sign") != null){
+       var  m  = "sign="+getUrlParam("sign");
+    }else{
+        var m = "1 =1";
+    }
+     if(getUrlParam("status") != null){
+       var  n  = "status="+getUrlParam("status");
+    }else{
+        var n = "1 =1";
+    }
+    if(getUrlParam("catId") != null){
+       var  l  = "catId="+getUrlParam("catId");
+    }else{
+        var l = "1 =1";
+    }
+    
+
+    $(".aa").each(function(){
+       var a =  $(this).attr("href")
+       
+         $(this).attr("href",a+"&"+m+"&"+l);
+       
+    })
+     $(".bb").each(function(){
+       var a =  $(this).attr("href")
+       
+         $(this).attr("href",a+"&"+n+"&"+l);
+        
+    })
+    
+  
+})
+
+ /*window.onload = function(){ 
+      if(getUrlParam("sign") != null){
+       var  m  = "sign="+getUrlParam("sign");
+    }else{
+        var m = "1 =1";
+    }
+     if(getUrlParam("status") != null){
+       var  n  = "status="+getUrlParam("status");
+    }else{
+        var n = "1 =1";
+    }
+    if(getUrlParam("catId") != null){
+       var  l  = "catId="+getUrlParam("catId");
+    }else{
+        var l = "1 =1";
+    }
+    
+
+      $(".cc").each(function(){
+        alert(1)
+        var a =  $(this).attr("href")
+        alert(a)
+            $(this).attr("href",a+"&"+m+"&"+n);
+        
+        
+    })
+ }*/
+</script>
+</body>
+</html>

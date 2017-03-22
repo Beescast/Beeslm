@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - 其他资料 - 反馈意见 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>其他资料</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                    <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li><a href="personal.html">我的订单</a></li>
+                        <li><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li class="active"><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title"><h2>账户资料 <span>其他资料</span></h2></div>
+                    <form   class="update" >
+                        <p class="ipt-label"><input type="text" id = "email" name="email" value="" class="ipt-text" placeholder="电子邮箱" /></p>
+                        <p class="ipt-label"><input type="text" id="telPhone" name="contactMobile" value="" class="ipt-text" placeholder="联系电话" /></p>
+                 
+                        <p class="ipt-label"><textarea class="ipt-text" name="contactAddress"  id="address" placeholder="联系地址" style="height:50px;width:100%"></textarea></p>
+                        <input type="hidden" name ="sessionKey" id="sessionKey" value =''>
+                        <p class="ipt-label"><input type="text" id="companyName" name="agencyName" value="" class="ipt-text" placeholder="经纪人公司名称" /></p>
+                        <p class="ipt-label"><input type="text" id="contact" name="agencyMobile" value="" class="ipt-text" placeholder="经纪人联系电话" /></p>
+                       
+                        <p class="ipt-label"><textarea class="ipt-text" name="description"  id="remarkInfo" placeholder="备注信息" style="height:50px;width:100%"></textarea></p>
+                        <div class="error-info"></div>
+                        <button type="submit" class="ipt-submit wd300">保存</button>
+                    </form>
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/otherInfo.js"></script>
+
+<script type="text/javascript">
+    
+     window.onload = function(){ 
+        var sessionKey = getCookieValue("sessionKey");
+       // document.getElementById("sessionKey").value=sessionKey;
+        var email = document.getElementById("email");
+        var telPhone = document.getElementById("telPhone");
+        var address = document.getElementById("address");
+        var companyName = document.getElementById("companyName");
+        var contact = document.getElementById("contact");
+        var remarkInfo = document.getElementById("remarkInfo");
+
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+
+            if(data.code==200){
+                $("#sessionKey").val(sessionKey);
+               email.value=data.data.response.result.email;
+               telPhone.value=data.data.response.result.contactMobile;
+               $("#address").text(data.data.response.result.contactAddress);
+               companyName.value=data.data.response.result.agencyName;
+               contact.value=data.data.response.result.agencyMobile;
+               $("#remarkInfo").text(data.data.response.result.description);
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+       
+    }
+</script>
+
+<script type="text/javascript">
+    var headAvart = document.getElementById("headAvart");
+    var userAvart = document.getElementById("userAvart");
+    var avatar = getCookieValue("avatar");
+    var Avart ='<img src="'+avatar+'" /><span></span>';
+        userAvart.innerHTML=Avart;
+        headAvart.innerHTML=Avart; 
+
+</script>
+ 
+</body>
+</html>

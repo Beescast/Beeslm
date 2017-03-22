@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>套餐购买 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+
+   
+
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer buyMeal-wrapper">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>套餐购买</span>
+        </div>
+        <!-- /position -->
+        <!-- buyMeal-box -->
+        <div class="buyMeal-top">
+            <div class="large" id="pic">
+                
+            </div>
+            <!-- right-info -->
+            <div class="right-info">
+                <h2 id="name"></h2>
+                <div class="desc">
+                    <p id="titleOne"></p>
+                    <p id="titleTwo"></p>
+                </div>
+                <dl class="type" >
+                    <dt>种类<input type="hidden" name="type" value="" /></dt>
+                    <dd id="lord-index-banner">
+                    <script type="text/html" id="tpl-lord-index-banner">
+                        {{each resultList as value i}}
+							<a href="javascript:;" {{if i == 0}}class=orange{{/if}} data-id="{{value.id}}" data-name="{{value.name}}" data-price="{{value.price}}" data-pid="{{value.packageId}}">{{value.name}}</a>
+                        {{/each}}
+						
+                    </script>
+                    </dd>
+                </dl>
+                <div class="mealPrice" id ="mealPrice"></div>
+                <a href="javascript:;" class="ipt-buyNow" id="links">立即购买</a>
+            </div>
+            <!-- /right-info -->
+        </div>
+        <!-- /buyMeal-box -->
+        <div class="meal-line">
+            <div class="cycle left"></div>
+            <div class="cycle right"></div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- buyMeal-content -->
+        <div class="buyMeal-content">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#introduce" data-toggle="tab">详细介绍</a></li>
+                <li><a href="#comment" data-toggle="tab">主播评价</a></li>
+            </ul>
+            <div class="tab-content">
+                <!-- 详细介绍 start -->
+                <div class="tab-pane fade in active pad50" id="introduce">
+                    <!-- <div style="margin-bottom: 30px; ">
+                        <img src="images/meal/img_02.png" style=" width: 510px; margin-right: 20px; margin-bottom: 20px;
+                        float: left; ">
+                        <div style="width: 550px; float: right; ">
+                            <p>很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。可是大家却不知道 有些弹出广告却是我们最信任的ISP（网络运营商）为了牟利强行推送给我们的。现在就说说我是如何解决的。</p>
+                            <p>很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。可是大家却不知道 有些弹出广告却是我们最信任的ISP（网络运营商）为了牟利强行推送给我们的。现在就说说我是如何解决的。</p>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div> -->
+      <!--               
+                    <div>
+                        <img src="images/meal/img_02.png" style=" width: 510px; margin-left: 20px; margin-bottom: 20px;
+                        float: right; ">
+                        <div style="width: 550px; float: left; ">
+                            <p>很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。可是大家却不知道 有些弹出广告却是我们最信任的ISP（网络运营商）为了牟利强行推送给我们的。现在就说说我是如何解决的。</p>
+                            <p>很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。可是大家却不知道 有些弹出广告却是我们最信任的ISP（网络运营商）为了牟利强行推送给我们的。现在就说说我是如何解决的。</p>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div> -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- 详细介绍 end -->
+                <!-- 主播评价 start -->
+                <div class="tab-pane fade" id="comment">
+                    <div class="mealComment inner" id="mealComment">
+                        <script type="text/html" id="tpl-mealComment">
+                            {{each resultList as value}}
+                        <dl class="comment">
+                            <dt>
+                                <a href="{{value.userUrl}}" class="head">{{if value.imgUrl}}<img src="{{value.imgUrl}}"  alt="">{{/if}}<span></span></a>
+                                <h3><a href="{{value.userUrl}}">{{value.name}}</a></h3>
+                            </dt>
+                            <dd class="mid">
+                                <h3>{{value.intro}}</h3>
+                                <p class="intro"><span class="fr">种类：{{value.type}}</span><span>{{value.dateTime}}</span></p>
+                            </dd>
+                            <dd class="last">
+                                
+                            </dd>
+                        </dl>
+                            {{/each}}
+                        </script>
+                    </div>
+                </div>
+                <!-- 主播评价 end -->
+            </div>
+        </div>
+        <!-- /buyMeal-content -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/meal.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(document).on('click', '#lord-index-banner a', function(){
+		$('#lord-index-banner a').removeClass('orange');
+		$(this).addClass('orange');
+
+         $("#mealPrice").html(" <p><span>￥"+$(this).data('price')+"</span> 一"+$(this).data('name')+"</p>");
+
+	});
+
+//立即购买 事件处理
+	$('#links').on('click', function(){
+		var _data = $('#lord-index-banner a.orange').data();
+		var _url = 'login.html';
+		var sessionKey = getCookieValue("sessionKey");
+		if('' != $.trim(sessionKey)){
+			_url = "buyMeal_cartList.html?price_id="+ _data.id +"&price=" + _data.price +"&packageId=" + _data.pid;
+		}
+		window.location.href = _url;
+	});
+
+});
+//$("#buyMeal").attr("class", "active");
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+    window.onload = function(){ 
+
+        var introduce = document.getElementById("introduce");
+        var name = document.getElementById("name");
+        var titleOne = document.getElementById("titleOne");
+        var titleTwo = document.getElementById("titleTwo");
+        var pic = document.getElementById("pic");
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/package/info?id=1",
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+               introduce.innerHTML=data.data.response.result.content;
+               name.innerHTML=data.data.response.result.name;
+               titleOne.innerHTML=data.data.response.result.titleOne;
+               titleTwo.innerHTML=data.data.response.result.titleTwo;
+               var img ='<a><img src="'+data.data.response.result.pic+'" alt="1" /></a>';
+               pic.innerHTML=img;
+                    
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+        var _data = $('#lord-index-banner a.orange').data();
+         $("#mealPrice").html(" <p><span>￥"+_data.price+"</span> 一"+_data.name+"</p>");
+
+	/*
+         var price_id = GetQueryString('price_id');
+         var mealPrice = document.getElementById("mealPrice"); 
+         if(price_id==null){
+             price_id =1;
+         }
+         var sessionKey = getCookieValue("sessionKey");
+         
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/package/singlePrice?id="+price_id,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+              mealPrice.innerHTML=" <p><span>￥"+data.data.response.result.price+"</span> 一"+data.data.response.result.name+"</p>";
+              if(sessionKey==''){
+                document.getElementById("links").href="login.html";
+              }else{
+                document.getElementById("links").href="buyMeal_cartList.html?price_id="+price_id+"&price="+data.data.response.result.price+"&packageId="+data.data.response.result.packageId;
+              }
+                    
+           }else{
+            alert(data.code)
+           }
+        }
+    });
+
+        $("a").removeClass('orange');
+        
+        $("#"+price_id).addClass("orange");
+		*/
+       
+    }
+
+    </script>
+
+</body>
+</html>

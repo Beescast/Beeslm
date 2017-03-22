@@ -1,0 +1,17 @@
+{
+  "total" :1,
+  "rows" : 5,
+  "offset" : 0,
+  "resultList" : [
+    {
+      "roomName" : "花椒直播",
+      "roomNO" : "232132321",
+      "userName" : "张三",
+      "idNo" : "3413091999009090909",
+      "rImgUrl" : "images/live_head.jpg",
+      "zImgUrl" : "images/live_head.jpg",
+      "fImgUrl" : "images/live_head.jpg",
+      "sImgUrl" : "images/live_head.jpg"
+    }
+  ]
+}

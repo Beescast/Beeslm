@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - 设置支付密码 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>支付密码</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                    <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li><a href="personal.html">我的订单</a></li>
+                        <li><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li class="active"><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title"><h2>账户资料 <span>设置支付密码</span></h2></div>
+                    <form  method="post" class="update">
+                       <input type="hidden" name="sessionKey" value="" class="ipt-text" id="sessionKey" />
+
+                        <p class="ipt-label"><input type="password" name="nPwd" value="" class="ipt-text" id="nPwd" placeholder="请输入支付密码" /></p>
+                        <input type="hidden" name="id" id="sessionId">
+                        <p class="ipt-label"><input type="password" name="newPass" value="" class="ipt-text" placeholder="请再次输入支付密码" /></p>
+                        <div class="error-info"></div>
+                        <button type="submit" class="ipt-submit wd300">保存</button>
+                    </form>
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/newPayPwd.js"></script>
+
+<script type="text/javascript">
+    var headAvart = document.getElementById("headAvart");
+    var userAvart = document.getElementById("userAvart");
+    var avatar = getCookieValue("avatar");
+    var Avart ='<img src="'+avatar+'" /><span></span>';
+        userAvart.innerHTML=Avart;
+        headAvart.innerHTML=Avart; 
+  
+        var sessionKey = getCookieValue("sessionKey");
+        document.getElementById("sessionKey").value=sessionKey;
+             function GetQueryString(name)
+        {
+             var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+             var r = window.location.search.substr(1).match(reg);
+             if(r!=null)return  unescape(r[2]); return null;
+        }
+
+         var id=GetQueryString('id');
+
+            document.getElementById("sessionId").value=id;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - 账户资料 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="LOGO" /></a>
+        <ul class="nav">
+            <li><a href="index.html">首页</a><i></i></li>
+            <li><a href="buyMeal.html">套餐购买</a><i></i></li>
+            <li class="active"><a href="personal.html">个人页</a><i></i></li>
+            <li><a href="store.html">小商城</a><i></i></li>
+            <li><a href="offer.html">悬赏任务</a><i></i></li>
+            <li><a href="about.html">关于bees</a><i></i></li>
+        </ul>
+        <div class="fr">
+            <a href="javascript:;" class="top-head" id="userAvart"></a>
+            <div class="top-user-name" id="userName"></div>
+            <a href="loginOut.html" class="top-exit">退出</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>账户资料</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                    <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li><a href="personal.html">我的订单</a></li>
+                        <li><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li class="active"><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title">账户资料</div>
+                    <!-- account-box -->
+                    <div class="account-box">
+                        <!-- account-top -->
+                        <div class="account-top">
+                            <div class="left">
+                                <dl class="hd">
+                                    <dt></dt>
+                                    <dd>
+                                        <input type="text" name="headImage" value="" data-toggle="uploadImage" />
+                                        <p class="md12" id="account"></p>
+                                        <p class="md12">
+                                            <span class="username" id="viewUserName"></span>
+                                            <input type="text" name="username" class="userName" id="inputUserName" placeholder="请输入新用户名" />
+                                            <a href="javascript:;" class="editUserName" id="editUserName"></a>
+                                            <input type="hidden" name="sessionKey" id="sessionKey">
+                                        </p>
+                                        <p><span class="tel" id="mobile"> </span><a href="./changePhone.html"  class="btn-default btn-changePhone">更换手机</a></p>
+                                    </dd>
+                                    <dd><button type="button"  data-toggle="modal" data-target="#uploadImage" id="btn-changeHead" class="btn-default btn-changeHead">更换头像</button></dd>
+                                </dl>
+                            </div>
+                            <div class="right">
+                                <p class="md" id="balance"></p>
+                                <p>
+                                    <a href="recharge.html" class="btn-default">充值</a>
+                                    <a href="runningWater.html" class="btn-default">钱包流水</a>
+                                    <a href="withdrawDeposit.html" class="btn-default">提现</a>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /account-top -->
+                        <!-- account-setting -->
+                        <div class="account-setting">
+                            <dl>
+                                <dt>主播认证</dt>
+                                <dd>已通过</dd>
+                                <dd><a href="liveApprove.html">查看</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>设置赏金任务类型</dt>
+                                <dd>已通过</dd>
+                                <dd><a href="offerType.html">设置</a></dd>
+                            </dl>
+                            <dl>
+                                <dt>修改登录密码</dt>
+                                <dd></dd>
+                                <dd><a href="editPwd.html">修改</a></dd>
+                            </dl>
+                            <dl>
+                                <dt >支付密码</dt>
+                                <dd id="isSetPayPw">未设置</dd>
+                                <dd id="SetPayPw"><a href="payPwd.html">设置</a></dd>
+                            </dl>
+                             <dl>
+                                <dt>绑定第三方登录</dt>
+                                <dd id ="isPlatform"></dd>
+                                <dd id ="bindPlatform"></dd>
+                            </dl>
+                            <dl>
+                                <dt>绑定银行卡</dt>
+                                <dd id ="isbind">未绑定</dd>
+                                <dd id ="bindBank"></dd>
+                            </dl>
+                            
+                            <dl>
+                                <dt>其他资料</dt>
+                                <dd></dd>
+                                <dd><a href="otherInfo.html">修改</a></dd>
+                            </dl>
+
+                          <!--   <dl>
+                                <dt>其他资料</dt>
+                                <dd></dd>
+                                <dd><a href="otherInfo.html">修改</a></dd>
+                            </dl> -->
+                            <dl>
+                                <dt>反馈意见</dt>
+                                <dd></dd>
+                                <dd><a href="javascript:;" data-toggle="modal" data-target="#feedback">填写</a></dd>
+                            </dl>
+                        </div>
+                        <!-- /account-setting -->
+                    </div>
+                    <!-- /account-box -->
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<!-- 上传图片 START -->
+<div class="iDialog" id="uploadImage" title="图片裁剪">
+    <iframe src="prompt/uploadAvatar.html" id="uploadImageFrame" scrolling="no" frameborder="0" style="width:100%; height: 410px;;"></iframe>
+</div>
+<!-- 上传图片 END -->
+<!-- 意见反馈 START -->
+<div class="prompt-box" title="意见反馈" id="feedback">
+    <form action="http://123.56.239.203:8080/bees/msg/add" method="get" class="feedback">
+        <dl class="normal">
+            <dt>填写内容：</dt>
+            <dd>
+                <input type="hidden" name="sessionKey" >
+                <textarea class="tta" name="feedbackMessage" id="feedbackMessage" placeholder="最少5个字符，最多1000个字符"></textarea>
+                <div class="error"></div>
+                <button type="submit" class="ipt-submit">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 意见反馈 END -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/account.js"></script>
+
+ <script>
+
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
+
+    window.onload = function(){ 
+        var sessionKey = getCookieValue("sessionKey");
+        document.getElementById("sessionKey").value=sessionKey;
+
+        var userName = document.getElementById("userName");
+        var name = document.getElementById("viewUserName");
+        var account = document.getElementById("account");
+        var mobile = document.getElementById("mobile");
+        var balance = document.getElementById("balance");
+        
+         var userAvart = document.getElementById("userAvart");
+         var headAvart = document.getElementById("headAvart");
+         var isbind = document.getElementById("isbind");
+         var bindBank = document.getElementById("bindBank");
+         var isSetPayPw =document.getElementById("isSetPayPw");
+         var SetPayPw = document.getElementById("SetPayPw");
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+               //introduce.innerHTML=data.data.response.result.content;
+               name.innerHTML=data.data.response.result.nickname;
+               userName.innerHTML=data.data.response.result.nickname;
+               account.innerHTML=data.data.response.result.mobile;
+                
+               var balan= "钱包余额：￥"+data.data.response.result.balance;
+                balance.innerHTML=balan;
+                var Avart ='<img src="'+data.data.response.result.avatar+'" /><span></span>';
+                userAvart.innerHTML=Avart;
+                headAvart.innerHTML=Avart;
+                if(data.data.response.result.bankName!=""){
+
+                    isbind.innerHTML='已绑定';
+                    bindBank.innerHTML='<a href="viewBank.html">查看</a>';
+
+                }else{
+                    isbind.innerHTML='未绑定';
+                    bindBank.innerHTML='<a href="bindBank.html">绑定</a>';
+                }
+                 if(data.data.response.result.payPass=="1"){
+
+                    isSetPayPw.innerHTML='已设置';
+                    SetPayPw.innerHTML='<a href="payPwd.html">重置</a>';
+
+                }
+                if(data.data.response.result.qqId!=""){
+                    var QQ ='<a  >QQ</a>'
+                }else{
+                    var QQ ='<a  href="http://admin.beeslm.com/login/QQLogin.php" style="color: #a0a0a0">QQ</a>'
+                }
+                 if(data.data.response.result.weixinId!=""){
+                    var weixin ='<a  >微信已绑</a>'
+                }else{
+                    var weixin ='<a  href="http://admin.beeslm.com/login/getCode.php" style="color: #a0a0a0">微信</a>'
+                }
+
+
+                $("#bindPlatform").html(QQ+"&nbsp&nbsp&nbsp"+weixin);
+
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+       
+    }
+
+</script>
+
+</body>
+</html>

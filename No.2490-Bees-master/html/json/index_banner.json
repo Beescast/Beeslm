@@ -1,0 +1,38 @@
+
+/*首页banner轮播*/
+{
+  "resultList" : [
+    { "title" : "你就是明日之星1", "url" : "javascript:;" , "imgUrl" : "images/index/banner.png", "content" : "Bees是一家致力于推动整个直播行业的服务平台"},
+    { "title" : "你就是明日之星2", "url" : "javascript:;" , "imgUrl" : "images/index/banner.png", "content" : "Bees是一家致力于推动整个直播行业的服务平台"}
+  ]
+}
+
+/*首页主播们的平价*/
+{
+  "resultList" : [
+    {
+      "name" : "飞翔的蓝鸟1",
+      "imgUrl" : "images/login/img_01.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    },
+    {
+      "name" : "飞翔的蓝鸟2",
+      "imgUrl" : "images/login/img_02.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    },
+    {
+      "name" : "飞翔的蓝鸟3",
+      "imgUrl" : "images/login/img_01.png",
+      "url" : "javascript:;",
+      "desc" : "优质专业推广主播",
+      "roomNo" : "房间号：708",
+      "intro" : "第一次使用，平台很赞，任务完成起来也很顺手。希望在平台继续使用！ ^_^"
+    }
+  ]
+}

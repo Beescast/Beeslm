@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>管理后台</title>
+
+		<!-- Maniac stylesheets -->
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../css/animate/animate.min.css" />
+		<link rel="stylesheet" href="../css/fullcalendar/fullcalendar.css" />
+		<link rel="stylesheet" href="../css/style.css" />
+
+		<!-- Javascript -->
+		<script src="../js/plugins/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/jquery-ui/jquery-ui-1.10.4.min.js" type="text/javascript"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+		<style type="text/css">
+			.rightside {
+	            padding-top: 30px;
+	        }
+	        .content h1 { font-size: 24px; line-height: 180%; margin: 10px 0px; }
+	        .table td, .table th { text-align:center; }
+	        @media print
+	        {
+	            .noprint {display:none;}
+	        }
+	        .table tr td:last-child{
+	        	width: 200px; white-space: nowrap;
+	        }
+		</style>
+		<style>
+			.file-input-wrapper { overflow: hidden; position: relative; cursor: pointer; z-index: 1; }.file-input-wrapper input[type=file], .file-input-wrapper input[type=file]:focus, .file-input-wrapper input[type=file]:hover { position: absolute; top: 0; left: 0; cursor: pointer; opacity: 0; filter: alpha(opacity=0); z-index: 99; outline: 0; }.file-input-name { margin-left: 8px; }
+			            .timeline-centered .timeline-entry { margin-bottom: 15px; }
+		</style>
+	</head>
+
+	<body class="fixed">
+		<iframe src="" name="ajax_iframe" style="display:none"></iframe>
+		<!-- Header -->
+		<header>
+			<a href="http://51boat.cc" class="logo"><i class="fa fa-joomla"></i> <span>管理系统</span></a>
+			<nav class="navbar navbar-static-top">
+				<a href="#" class="navbar-btn sidebar-toggle">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<div class="navbar-header">
+					<form role="search" class="navbar-form" method="post" action="http://51boat.cc/m/search.php" name="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="搜索..." name="keyword" />
+							<span class="input-group-btn">
+                                <button type="submit" id="search-btn" class="btn"><i class="fa fa-search"></i></button>
+                            </span>
+						</div>
+					</form>
+				</div>
+				<div class="navbar-right">
+					<ul class="nav navbar-nav">
+						<li class="dropdown widget-user">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="http://51boat.cc/upload/avatar/default.png" class="pull-left" alt="image" />
+								<span>admin <i class="fa fa-caret-down"></i></span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="profile.html"><i class="fa fa-user"></i>账户管理</a>
+								</li>
+								<li class="footer">
+									<a href="http://51boat.cc/m/logout.php"><i class="fa fa-power-off"></i>退出系统</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- /.header -->
+		<!-- wrapper -->
+		<div class="wrapper">
+			<div class="leftside">
+				<div class="sidebar">
+					<div class="user-box">
+						<div class="avatar">
+							<img src="http://51boat.cc/upload/avatar/default.png" alt="" />
+						</div>
+						<div class="details">
+							<p>admin</p>
+							<span class="position">系统管理...</span>
+						</div>
+						<div class="button">
+							<a href="http://51boat.cc/m/logout.php"><i class="fa fa-power-off"></i></a>
+						</div>
+					</div>
+					<ul class="sidebar-menu">
+						<!--li class="title">功能导航</li-->
+						<li><a href="http://51boat.cc/m/index.php"><i class="fa fa-home"></i> <span>后台首页</span></a></li>
+						<li><a href="http://51boat.cc/m/51boat/sea.php?action=list"><i class="fa fa-home"></i> <span>渔船管理</span></a></li>
+						<li class="active sub-nav"><a href="#"><i class="fa fa-sitemap"></i>
+                                    <span>订单管理</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+							<ul class="sub-menu">
+								<li class="active"><a href="http://51boat.cc/m/51boat/order.php?action=boat">包船订单</a></li>
+								<li><a href="http://51boat.cc/m/51boat/gift.php?action=list">团购券订单</a></li>
+							</ul>
+						</li>
+						<li class="sub-nav"><a href="#"><i class="fa fa-sitemap"></i>
+                                    <span>渠道管理</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+							<ul class="sub-menu">
+								<li><a href="http://51boat.cc/m/51boat/channel.php?action=list&channel_id=1">格格巫</a></li>
+							</ul>
+						</li>
+						<li><a href="http://51boat.cc/m/51boat/data.php?action=list"><i class="glyphicon glyphicon-stats"></i> <span>数据统计</span></a></li>
+						<li><a href="http://51boat.cc/m/51boat/suggest.php?action=list"><i class="fa fa-sitemap"></i> <span>投诉建议</span></a></li>
+						<li><a href="http://51boat.cc/m/51boat/user.php?action=list"><i class="fa fa-sitemap"></i> <span>会员管理</span></a></li>
+						<li><a href="http://51boat.cc/m/wei/template.php?action=list"><i class="fa fa-home"></i> <span>消息模板</span></a></li>
+						<li class="sub-nav"><a href="#"><i class="fa fa-gear"></i>
+                                    <span>系统管理</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+							<ul class="sub-menu">
+								<li><a href="http://51boat.cc/base/admin/system/user.php?action=admin">账号管理</a></li>
+								<li><a href="http://51boat.cc/base/admin/system/role.php?action=list">角色管理</a></li>
+								<li><a href="http://51boat.cc/base/admin/system/config.php?action=list">系统配置</a></li>
+								<li><a href="http://51boat.cc/m/system/cache.php?action=update">缓存更新</a></li>
+							</ul>
+						</li>
+						<li class="sub-nav"><a href="#"><i class="fa fa-user"></i>
+                                    <span>账户管理</span>
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+							<ul class="sub-menu">
+								<li><a href="http://51boat.cc/base/admin/system/modify_password.php?action=list">修改密码</a></li>
+							</ul>
+						</li>
+						<!--li class="active sub-nav">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Other Pages</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="404.html">404 Error</a></li>
+                                <li class="active"><a href="blank.html">Blank Page</a></li>
+                                <li><a href="invoice.html">Invoice</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="lockscreen.html">Lockscreen</a></li>
+                                <li><a href="timeline.html">Timeline</a></li>
+                            </ul>
+                        </li-->
+					</ul>
+				</div>
+			</div>
+			<div class="rightside">
+				<div class="content">
+					<script type="text/javascript">
+						function selectAll(checkbox) {
+						            $('input[type=checkbox]').prop('checked', $(checkbox).prop('checked'));
+						        }
+					</script>
+					<!--查询框-->
+					<div class="box">
+						<div class="box-title">
+							<i class="fa fa-signal"></i>
+							<h3>查询</h3>
+							<div class="pull-right box-toolbar">
+								<a href="#" class="btn btn-link btn-xs collapse-box"><i class="fa fa-chevron-up"></i></a>
+								<a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="box-body">
+
+							<div>
+								<form class="form-inline" enctype="multipart/form-data" action="" method="get" name="add_district">
+									<input type="hidden" name="action" value="list">
+									<input type="hidden" name="boat_id" value="1">
+
+									<div class="form-group">
+										<label>选择捕捞期</label>
+										<select class="form-control" name="period_id">
+											<option value="0" selected class="">请选择</option>
+											<option value="1" class="">2015-08-24</option>
+											<option value="9" class="">2015-09-27</option>
+											<option value="10" class="">2015-10-12</option>
+											<option value="11" class="">2015-10-27</option>
+											<option value="12" class="">2015-11-11</option>
+											<option value="13" class="">2015-11-26</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>选择套餐</label>
+										<select class="form-control" name="good_id">
+											<option value="0" selected class="">请选择</option>
+											<option value="1" class="">199包船（体验版）</option>
+											<option value="3" class="">299包船（悦享版）</option>
+											<option value="6" class="">399包船（尊享版）</option>
+											<option value="10" class="">139包船（体验版）</option>
+											<option value="11" class="">199包船（悦享版）</option>
+											<option value="12" class="">299包船（尊享版）</option>
+											<option value="14" class="">139包船（体验版）礼品券</option>
+											<option value="15" class="">199包船（悦享版）礼品券</option>
+											<option value="16" class="">299包船（尊享版）礼品券</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label>选择日期</label>
+										<input name="date_s" class="form-control" value="" class="Wdate" onclick="WdatePicker()" type="text" style="width:100px;"> -
+										<input name="date_e" class="form-control" value="" class="Wdate" onclick="WdatePicker()" type="text" style="width:100px;">
+									</div>
+
+									<button type="submit" class="btn btn-success">提交</button>
+
+									<a href="export.php?boat_id=1&good_id=0&date_s=&date_e=" class="btn btn-success" target="_blank">导出</a>
+									<a href="export_all.php?boat_id=1&good_id=0&date_s=&date_e=" class="btn btn-success" target="_blank">导出汇总</a>
+
+								</form>
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12" style="min-width:800px;">
+							<div class="box" id="printArea">
+								<div class="box-title">
+
+									<h3>订单列表</h3>
+									<div class="pull-right box-toolbar">
+										<a href="#" class="btn btn-link btn-xs collapse-box"><i class="fa fa-chevron-up"></i></a>
+										<a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+									</div>
+								</div>
+								<div class="box-body">
+									<form class="form-horizontal" role="form" action="" enctype="multipart/form-data" method="post" name="修改角色">
+										<table class="table table-hover table-striped">
+											<thead>
+												<tr>
+													<th width="80px" style="text-align:center">
+														<input type="checkbox" onclick="selectAll(this);" />全选</th>
+													<th width="40px" style="text-align:center">ID</th>
+													<th style="text-align:center">套餐名</th>
+													<th style="text-align:center">套餐价格</th>
+													<th style="text-align:center">选择品种</th>
+													<th style="text-align:center">状态</th>
+													<th width="200px" style="text-align:center">收件人</th>
+													<th width="150px" style="text-align:center">预订时间</th>
+													<th style="text-align:center">操作</th>
+												</tr>
+											</thead>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000205">
+												</td>
+												<td width="" style="text-align:center">B80000205</td>
+												<td width="" style="text-align:center">199包船（体验版）</td>
+												<td width="" style="text-align:center">199.00</td>
+												<td width="" style="text-align:center">
+													<p>带鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">杨林 13605151606
+													<br>江苏省南京市雨花台区凤集大道15号北柚10A</td>
+												<td width="" style="text-align:center">2015-08-24 00:11:35</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000205&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取3333333333333消</a>													<a href="/m/51boat/order.php?action=tips&id=80000205&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000209">
+												</td>
+												<td width="" style="text-align:center">B80000209</td>
+												<td width="" style="text-align:center">299包船（悦享版）</td>
+												<td width="" style="text-align:center">299.00</td>
+												<td width="" style="text-align:center">
+													<p>带鱼</p>
+													<p></p>
+													<p>鲳鱼</p>
+													<p>竹节虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">于卫卫 13818326530
+													<br>上海市浦东新区长岛路728弄13号401室</td>
+												<td width="" style="text-align:center">2015-08-24 00:16:26</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000209&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000209&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000211">
+												</td>
+												<td width="" style="text-align:center">B80000211</td>
+												<td width="" style="text-align:center">199包船（体验版）</td>
+												<td width="" style="text-align:center">199.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>鲻鱼</p>
+													<p></p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">缪辉 18651865186
+													<br>江苏省南京市玄武区银城东苑</td>
+												<td width="" style="text-align:center">2015-08-24 00:21:16</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000211&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="javascript:void(0);" class="btn palette-silver btn-color btn-sm">已发送</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000212">
+												</td>
+												<td width="" style="text-align:center">B80000212</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>鲻鱼</p>
+													<p>黄鱼</p>
+													<p>金钩虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:36:27</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000212&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000212&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000213">
+												</td>
+												<td width="" style="text-align:center">B80000213</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>鲳鱼</p>
+													<p>铁头</p>
+													<p>金钩虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:37:20</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000213&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000213&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000214">
+												</td>
+												<td width="" style="text-align:center">B80000214</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+													<p>金钩虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:38:26</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000214&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000214&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000215">
+												</td>
+												<td width="" style="text-align:center">B80000215</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>海鲈鱼</p>
+													<p>鲳鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+													<p>竹节虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:39:09</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000215&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000215&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000216">
+												</td>
+												<td width="" style="text-align:center">B80000216</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>鲳鱼</p>
+													<p>米鱼</p>
+													<p>金钩虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:39:43</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000216&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000216&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000217">
+												</td>
+												<td width="" style="text-align:center">B80000217</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>鲳鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+													<p>金钩虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:40:19</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000217&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000217&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000218">
+												</td>
+												<td width="" style="text-align:center">B80000218</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+													<p>铁头</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:40:54</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000218&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000218&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000219">
+												</td>
+												<td width="" style="text-align:center">B80000219</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>海鲈鱼</p>
+													<p>米鱼</p>
+													<p>铁头</p>
+													<p>竹节虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">鲍亚健 13816081990
+													<br>上海市闵行区鑫都路2688弄46号301</td>
+												<td width="" style="text-align:center">2015-08-24 00:41:27</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000219&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000219&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000220">
+												</td>
+												<td width="" style="text-align:center">B80000220</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>黄鱼</p>
+													<p>铁头</p>
+													<p>金钩虾</p>
+													<p>竹节虾</p>
+													<p>相思螺</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">洪小骏 18049893332
+													<br>江苏省南京市建邺区白龙江东街87号朗诗中园2-3-301</td>
+												<td width="" style="text-align:center">2015-08-24 00:50:31</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000220&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000220&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000221">
+												</td>
+												<td width="" style="text-align:center">B80000221</td>
+												<td width="" style="text-align:center">199包船（体验版）</td>
+												<td width="" style="text-align:center">199.00</td>
+												<td width="" style="text-align:center">
+													<p>竹节虾</p>
+													<p></p>
+													<p></p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">陆阳 18602196776
+													<br>上海市长宁区仙霞路1316弄32号102室</td>
+												<td width="" style="text-align:center">2015-08-24 07:22:55</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000221&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000221&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000223">
+												</td>
+												<td width="" style="text-align:center">B80000223</td>
+												<td width="" style="text-align:center">299包船（悦享版）</td>
+												<td width="" style="text-align:center">299.00</td>
+												<td width="" style="text-align:center">
+													<p>鲻鱼</p>
+													<p>米鱼</p>
+													<p>黄鱼</p>
+													<p>鲳鱼</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">郑彩云 13771885499
+													<br>江苏省苏州市吴江市苏州市园区玲珑湾花园36#1002</td>
+												<td width="" style="text-align:center">2015-08-24 07:28:02</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000223&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000223&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000226">
+												</td>
+												<td width="" style="text-align:center">B80000226</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>鲳鱼</p>
+													<p>黄鱼</p>
+													<p>金钩虾</p>
+													<p>竹节虾</p>
+													<p>相思螺</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">黄晓莉 13952084936
+													<br>江苏省南京市秦淮区石门坎117号大地豪庭2-1005</td>
+												<td width="" style="text-align:center">2015-08-24 07:34:18</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000226&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000226&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000227">
+												</td>
+												<td width="" style="text-align:center">B80000227</td>
+												<td width="" style="text-align:center">199包船（体验版）</td>
+												<td width="" style="text-align:center">199.00</td>
+												<td width="" style="text-align:center">
+													<p>带鱼</p>
+													<p></p>
+													<p>黄鱼</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">陈建敏 13912983932
+													<br>江苏省南京市鼓楼区南京市广州路300号江苏省人民医院胰腺中心</td>
+												<td width="" style="text-align:center">2015-08-24 07:35:35</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000227&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000227&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000228">
+												</td>
+												<td width="" style="text-align:center">B80000228</td>
+												<td width="" style="text-align:center">299包船（悦享版）</td>
+												<td width="" style="text-align:center">299.00</td>
+												<td width="" style="text-align:center">
+													<p>海鲈鱼</p>
+													<p>带鱼</p>
+													<p>鲳鱼</p>
+													<p>竹节虾</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">陈建敏 13912983932
+													<br>江苏省南京市鼓楼区南京市广州路300号江苏省人民医院胰腺中心</td>
+												<td width="" style="text-align:center">2015-08-24 07:37:30</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000228&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000228&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000229">
+												</td>
+												<td width="" style="text-align:center">B80000229</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>舌鳎鱼</p>
+													<p>鲻鱼</p>
+													<p>鲳鱼</p>
+													<p>米鱼</p>
+													<p>铁头</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">陈建敏 13912983932
+													<br>江苏省南京市鼓楼区南京市广州路300号江苏省人民医院胰腺中心</td>
+												<td width="" style="text-align:center">2015-08-24 07:38:55</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000229&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000229&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="firstalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000230">
+												</td>
+												<td width="" style="text-align:center">B80000230</td>
+												<td width="" style="text-align:center">399包船（尊享版）</td>
+												<td width="" style="text-align:center">399.00</td>
+												<td width="" style="text-align:center">
+													<p>鲻鱼</p>
+													<p>鲳鱼</p>
+													<p>黄鱼</p>
+													<p>竹节虾</p>
+													<p>相思螺</p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">黄文华 17705199948
+													<br>江苏省南京市鼓楼区匡庐路19号508室</td>
+												<td width="" style="text-align:center">2015-08-24 07:50:13</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000230&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000230&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+											<tr class="secondalt">
+												<td width="" style="text-align:center">
+													<input type="checkbox" name="ids[]" value="80000231">
+												</td>
+												<td width="" style="text-align:center">B80000231</td>
+												<td width="" style="text-align:center">299包船（悦享版）</td>
+												<td width="" style="text-align:center">299.00</td>
+												<td width="" style="text-align:center">
+													<p>带鱼</p>
+													<p>鲳鱼</p>
+													<p>金钩虾</p>
+													<p></p>
+												</td>
+												<td width="" style="text-align:center">已发货</td>
+												<td width="" style="text-align:center">顾晖 13771438746
+													<br>江苏省无锡市滨湖区万科金域缇香49号201</td>
+												<td width="" style="text-align:center">2015-08-24 07:56:18</td>
+												<td width=""><a href="/m/51boat/order.php?action=global_modify&id=80000231&status=1&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-danger btn-sm" onclick="javascript:{if(confirm('该操作不可恢复，确认要执行吗?')){return true;} else {return false;}}">取消</a>													<a href="/m/51boat/order.php?action=tips&id=80000231&forward=%2Fm%2F51boat%2Forder.php%3Faction%3Dlist%26boat_id%3D1" class="btn btn-primary btn-sm">小贴士</a> </td>
+											</tr>
+										</table>
+										<input type="hidden" name="action" value="update_all">
+										<div class="row">
+											<div class="col-xs-6">
+												<button type="submit" class="btn btn-primary btn-sm" name="global_update_all" value="1">批量发货</button>
+											</div>
+											<div class="col-xs-6 text-right">
+												<div class="dataTables_paginate paging_bootstrap">
+													<ul class="pagination">
+														<li class="disabled"><a href="#">总记录数:537</a></li>
+														<li class="prev disabled"><a href="#">首页</a></li>
+														<li class="disabled"><a href="#">上一页</a></li>
+														<li class="active"><a href="#">1</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=2&boat_id=1">2</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=3&boat_id=1">3</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=4&boat_id=1">4</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=5&boat_id=1">5</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=6&boat_id=1">6</a></li>
+														<li><a href="/m/51boat/order.php?action=list&p=2&boat_id=1">下一页</a></li>
+														<li class="next"><a href="/m/51boat/order.php?action=list&p=27&boat_id=1">尾页</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+								</div>
+								<!-- /box-body -->
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+					<p></p>
+				</div>
+			</div>
+		</div>
+		<!-- /.wrapper -->
+		<!-- Bootstrap -->
+		<script src="../js/plugins/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/gritter/jquery.gritter.min.js" type="text/javascript"></script>
+
+		<!-- Charts -->
+		<script src="../js/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.stack.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.crosshair.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/jquery-jvectormap/jquery-jvectormap-europe-merc-en.js" type="text/javascript"></script>
+
+		<!-- Interface -->
+		<script src="../js/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/pace/pace.min.js" type="text/javascript"></script>
+
+		<!-- Forms -->
+		<script src="../js/plugins/bootstrap-file-input/bootstrap-file-input.js" type="text/javascript"></script>
+		<script src="../js/plugins/datepicker/datepicker.js" type="text/javascript"></script>
+
+		<script src="../js/custom.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+			                //File Input
+			                $('.file-inputs').bootstrapFileInput();
+			            });
+		</script>
+
+		<!-- Add -->
+		<script src="../../js/jquery-migrate-1.2.1.js"></script>
+		<script src="../../js/ckeditor/ckeditor.js" type="text/javascript" language="javascript"></script>
+		<script src="../../js/jquery.jqprint-0.3.js" type="text/javascript" language="javascript"></script>
+		<script src="../../js/calendar/WdatePicker.js" type="text/javascript" language="javascript"></script>
+
+		<script language="javascript">
+			//CKEDITOR.replace('content',{
+			//filebrowserImageUploadUrl:'http://51boat.cc/base/admin/system/upload_image.php?type=img',
+			//});
+			
+			//CKEditorConfig settings = new CKEditorConfig();
+			    //settings.addConfigValue("filebrowserImageUploadUrl","http://51boat.cc/base/admin/system/upload_image.php?type=img");
+			
+			
+			
+			        function  printArea(){
+			            $(".noprint").hide();
+			            $("#printArea").jqprint();
+			        }
+		</script>
+	</body>
+
+</html>

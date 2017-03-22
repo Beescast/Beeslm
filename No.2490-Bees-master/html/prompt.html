@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>套餐购买 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+
+</head>
+<body>
+<div class="prompt-btn">
+    <a href="javascript:;" data-toggle="modal" data-target="#orderInfo">订单评价</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#identification">注册及认证信息已经提交</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#packagePay">钱包支付</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#finishDuties">完成任务</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#moneyReward">确定报名赏金任务</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#cancelOrder">确定取消订单吗</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#eidtPwdSuccess">您已成功修改密码</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#uploadImage">图片裁剪</a>
+
+    <a href="javascript:;" data-toggle="modal" data-target="#delBankInfo">确定删除绑定的银行卡吗</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#buyMealDialog">推广信息分析必须先购买套餐</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#saveSuccess">信息已经保存成功</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#applySuccess">提现申请已经提交</a>
+    <a href="javascript:;" data-toggle="modal" data-target="#feedback">意见反馈</a>
+</div>
+
+
+<!-- 订单评价 START-->
+<div class="prompt-box" id="orderInfo" title="订单评价">
+    <form action="#" method="post" class="order-say">
+        <dl>
+            <dt>订单号：</dt>
+            <dd>2016060410001</dd>
+        </dl>
+        <dl>
+            <dt>套餐名称：</dt>
+            <dd>月套餐</dd>
+        </dl>
+        <dl>
+            <dt>评语：</dt>
+            <dd>
+                <textarea class="tta" name="orderSayMessage" placeholder="最少2个字，最多200个字"></textarea>
+                <div class="error"></div>
+                <button type="submit" class="ipt-submit">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 订单评价 END-->
+<!-- 注册及认证信息已经提交 提示 START-->
+<div class="prompt-box" id="identification" title="提示">
+    <div class="hint-info">
+        <h2>注册及认证信息已经提交</h2>
+        <p>我们将在3个工作日内完成审核！</p>
+        <p><span class="lastTime">3</span>秒钟后自动跳转到首页！</p>
+    </div>
+</div>
+<!-- 注册及认证信息已经提交 提示 END-->
+<!-- 钱包支付 START -->
+<div class="prompt-box" title="钱包支付" id="packagePay">
+    <form action="#" method="post" class="packagePay">
+        <dl>
+            <dt>订单金额：</dt>
+            <dd>￥300.00</dd>
+        </dl>
+        <dl>
+            <dt>钱包余额：</dt>
+            <dd>
+                <a href="javascript:;" class="link">余额不够？请充值</a>
+                ￥3900.00
+            </dd>
+        </dl>
+        <input type="password" name="payPassword" value="" placeholder="支付密码" class="ipt-pwd" />
+        <div class="">
+            <a href="javascript:;" class="link">请先设置支付密码</a>
+            <div class="error"></div>
+            <div class="clearfix"></div>
+        </div>
+        <button type="submit" class="ipt-submit">支&nbsp;&nbsp;&nbsp;&nbsp;付</button>
+    </form>
+</div>
+<!-- 钱包支付 END -->
+<!-- 完成任务 START  -->
+<div class="prompt-box" title="完成任务" id="finishDuties">
+    <form action="#" method="post" class="finishDuties">
+        <dl class="table">
+            <dt>任务类型：</dt>
+            <dd>视频流广告</dd>
+        </dl>
+        <dl class="table">
+            <dt>任务说明：</dt>
+            <dd>......</dd>
+        </dl>
+        <dl class="table">
+            <dt>上传截图：</dt>
+            <dd>
+                <div class="upload-image-btn">
+                    <button type="button" class="ipt-button" id="btn-finishDuties">上传图片</button>
+                    <p>（最少三张截图）</p>
+                </div>
+                <div class="img-box" id="selectImage-finishDuties">
+                    <input type="number" name="littleNumber" value="0" class="littleNumber" />
+                </div>
+                <div class="error"></div>
+                <button type="submit" name="submit" class="ipt-submit">提交审核</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 完成任务 END -->
+<!-- 图片裁剪 START-->
+<div class="prompt-box" id="uploadImage" title="图片裁剪">
+    <iframe src="prompt/uploadImage.html" id="uploadImageFrame" scrolling="no" frameborder="0" style="width:100%; height: 410px;;"></iframe>
+</div>
+<!-- 图片裁剪 END-->
+<!-- 确定报名赏金任务 START -->
+<div class="prompt-box" title="提示" id="moneyReward">
+    <div class="hint-info">
+        <h2>确定报名赏金任务？</h2>
+        <br />
+        <button type="button" class="btn btn-normal"data-dismiss="modal">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+    </div>
+</div>
+<!-- 确定报名赏金任务 END -->
+<!-- 确定取消订单吗 START -->
+<div class="prompt-box" title="提示" id="cancelOrder">
+    <div class="hint-info">
+        <h2>确定取消订单吗？</h2>
+        <p>订单号：201602040009</p>
+        <br />
+        <button type="button" class="btn btn-normal"data-dismiss="modal">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+    </div>
+</div>
+<!-- 确定取消订单吗 END -->
+<!-- 您已成功修改密码 START -->
+<div class="prompt-box" title="提示" id="eidtPwdSuccess">
+    <div class="hint-info">
+        <h2>您已成功修改密码！</h2>
+        <p><span class="lastTime">3</span>秒钟后自动关闭</p>
+    </div>
+</div>
+<!-- 您已成功修改密码 END -->
+<!-- 确定删除绑定的银行卡吗 START -->
+<div class="prompt-box" title="提示" id="delBankInfo">
+    <div class="hint-info">
+        <h2>确定删除绑定的银行卡吗？</h2>
+        <br />
+        <button type="button" class="btn btn-normal"data-dismiss="modal">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+        <br />
+    </div>
+</div>
+<!-- 确定删除绑定的银行卡吗 END -->
+<!-- 推广信息分析必须先购买套餐 START -->
+<div class="prompt-box" title="提示" id="buyMealDialog">
+    <div class="hint-info">
+        <h2>推广信息分析必须先购买套餐</h2>
+        <p><span class="lastTime">3</span>秒钟后自动跳转到<a href="buyMeal.html">套餐购买页</a>！</p>
+        <br />
+    </div>
+</div>
+<!-- 推广信息分析必须先购买套餐 END -->
+<!-- 信息已经保存成功 START -->
+<div class="prompt-box" title="提示" id="saveSuccess">
+    <div class="hint-info">
+        <h2>信息已经保存成功!</h2>
+        <p><span class="lastTime">3</span>秒钟后自动跳转到<a href="personal.html">3用户中心</a>！</p>
+        <br />
+    </div>
+</div>
+<!-- 信息已经保存成功 END -->
+<!-- 提现申请已经提交！START -->
+<div class="prompt-box" title="提示" id="applySuccess">
+    <div class="hint-info">
+        <h2>信息已经保存成功!</h2>
+        <p>我们会尽快处理！</p>
+        <p><span class="lastTime">3</span>秒钟后自动跳转到<a href="personal.html">用户中心</a>！</p>
+        <br />
+    </div>
+</div>
+<!-- 提现申请已经提交！END -->
+<!-- 意见反馈 START -->
+<div class="prompt-box" title="意见反馈" id="feedback">
+    <form action="#" method="post" class="feedback">
+        <dl class="normal">
+            <dt>填写内容：</dt>
+            <dd>
+                <textarea class="tta" name="feedbackMessage" placeholder="最少5个字，最多500字"></textarea>
+                <div class="error"></div>
+                <button type="submit" class="ipt-submit">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 意见反馈 END -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/prompt.js"></script>
+</body>
+</html>

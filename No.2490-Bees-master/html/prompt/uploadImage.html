@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片</title>
+    <link type="text/css" rel="stylesheet" href="../css/common.css" />
+    <link type="text/css" rel="stylesheet" href="../css/cropper.css" />
+    <style type="text/css">
+        html,body{ width: 100%; padding-top: 0; background-color: #FFF; }
+    </style>
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="../css/ie8.css"/>
+    <![endif]-->
+</head>
+<body>
+<form action="http://123.56.239.203:8080/bees/file/uploadFiles" method="post" encType="application/x-www-form-urlencoded" class="uploadImage">
+    <div class="btn-top">
+        <label class="btn btn-primary btn-upload" for="inputImage" title="Upload image file">
+            <input class="sr-only" id="inputImage" name="file" type="file" accept="image/jpeg,image/png,image/jpg">
+            <span class="docs-tooltip" data-toggle="tooltip" title="Import image with Blob URLs">
+                <span class="">上传图片</span>
+            </span>
+        </label>
+    </div>
+    <div class="img-container">
+        <img src="../images/empty.png" alt="Picture">
+    </div>
+    <div class="right">
+        <div class="docs-preview">
+            <div class="img-preview"></div>
+            <div class="errorInfo"></div>
+        </div>
+        <div class="coordinate">
+           <!--  <input type="text" name="dataX" id="dataX" />
+            <input type="text" name="dataY" id="dataY" />
+            <input type="text" name="dataHeight" id="dataHeight" />
+            <input type="text" name="dataWidth" id="dataWidth" /> -->
+        </div>
+        <button type="button" name="submit" class="btn ipt-submit">确定</button>
+    </div>
+    <div class="clearfix"></div>
+</form>
+<script type="text/javascript" src="../js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/plugs/cropper/cropper.js"></script>
+<script type="text/javascript" src="../js/plugs/cropper/main.js"></script>
+<script type="text/javascript" src="../js/jquery.form.min.js"></script>
+<script type="text/javascript">
+var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+var imageMaxSize = 5120;            //2MB
+//判断图片大小
+function isSize(target){
+    var fileSize = 0;
+    if (isIE && !target.files) {
+        var filePath = target.value;
+        var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+        var file = fileSystem.GetFile (filePath);
+        fileSize = file.Size;
+    } else {
+        fileSize = target.files[0].size;
+    }
+    var size = fileSize / 1024;
+    return size > imageMaxSize;
+}
+
+//提交前校验判断
+function showRequest(formData, jqForm, options){
+    //图片大小不能超于2MB
+    if(isSize($('#inputImage')[0])){
+        $('div.errorInfo').text('上传图片不能大于:' + (imageMaxSize / 1024).toFixed(2) + 'MB');
+        return false;
+    }
+}
+
+//提交后返回数据处理
+function showResponse(responseText, statusText){
+    //var serviceImgUrl = $('form.uploadImage .cropper-canvas img').attr('src'); 
+                                     //注：更换服务器返回图片存储地址
+    window.parent.hideCutImageDialog($('.img-container > img').cropper("getCroppedCanvas"), responseText.data.response.urls);     //关闭弹窗并赋值参数
+    window.location.reload();           //重新加载页面，初始化数据
+}
+
+//小图大小修复（firefox中不显示问题）
+function fixSize(){
+    return $('form.uploadImage .img-preview').width() < 150;
+}
+
+$(window).ready(function(){
+    showCropper();          //加载裁剪控件
+
+    //保存上传图片
+    $('form.uploadImage button.ipt-submit').on('click', function(){
+        //提交数据
+        $('form.uploadImage').ajaxSubmit({
+            resetForm: true,
+            dataType:  'json',
+            beforeSubmit : showRequest,
+            success : showResponse
+        });
+
+        //------------------------------
+        //注：以下三行代码 ，在上传成功后调取， 移入success函数（即：showResponse中）
+        /*var serviceImgUrl = $('form.uploadImage .cropper-canvas img').attr('src');                                  //注：更换服务器返回图片存储地址
+        window.parent.hideCutImageDialog($('.img-container > img').cropper("getCroppedCanvas"), serviceImgUrl);     //关闭弹窗并赋值参数
+        window.location.reload();  */         //重新加载页面，初始化数据
+        //------------------------------
+    })
+
+    $('#inputImage').change(function(){
+        if(!isSize($('#inputImage')[0])) $('div.errorInfo').text('');           //清空错误信息
+        if(fixSize()) $('form.uploadImage .img-preview').width(150).height(150);    //修改小图高度
+
+        $('form.uploadImage button.ipt-submit').show();
+    });
+});
+</script>
+</body>
+</html>

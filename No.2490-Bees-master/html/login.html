@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>登录 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+
+</head>
+<body>
+<!-- header -->
+
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>登录</span>
+        </div>
+        <!-- /position -->
+        <!-- login-box -->
+        <div class="login-box">
+            <div class="title">
+                <div class="right">
+                    <a href="login.html"><img src="images/login/user.png" /></a>
+                    <a href="messageLogin.html"><img src="images/login/phone.png" /></a>
+                    <a href="http://admin.beeslm.com/login/QQLogin.php" ><img src="images/login/qq.png" id="qqLoginBtn"/></a>
+                    <a href="http://admin.beeslm.com/login/getCode.php" class="weixin-login"><img src="images/login/wx.png" /></a>
+                    <a href="messageLogin.html" class="phone-verify">账号密码登录</a>
+                </div>
+                <h3>登录BEES</h3>
+            </div>
+           
+            <div class="content">
+                <div class="left">
+                    <div class="intro">
+                        <p>BEES直播联盟</p>
+                        <br />
+                        <p>BEES直播联盟简介BEES直播联盟简介BEES直播联盟简介BEES直播联盟简介BEES直播联盟简介BEES直播联盟简介</p>
+                    </div>
+                    <dl class="notice">
+                        <dt>最新公告：</dt>
+                        <dd>
+                            <div id="notice">
+                                <script type="text/html" id="tpl-notice">
+                                    {{each resultList as value}}
+                                    <a href="notice_detail.html?notice_id={{value.id}}">{{value.title}}</a>
+                                    {{/each}}
+                                </script>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <form action="" method="post" class="login-form" >
+                    <p><input type="text" name="mobile" value="" class="ipt-txt" placeholder="用户名／手机／邮箱"  id="inputMobile"/></p>
+                    <p><input type="password" name="password" value="" class="ipt-txt" placeholder="登录密码" id="inputPassword" /></p>
+                    <p>
+                        <input type="text" name="code" value="" class="ipt-txt verifyCode" placeholder="图形验证码" id="verifyCode"/>
+                        <a href="javascript:void(0)" class="codeImage" id="otherRegist">
+
+                        <img id="identifyImage" src="" alt="点击刷新验证码"  onclick="updateImage()" />
+
+                        </a>
+                    </p>
+                    <input type="hidden" name="sk" value=""   id="sk"/>
+                    <a href="javascript:void(0)" ><button type="" class="ipt-submit" onClick="userLogin()">登录</button></a>
+                    <div class="lr-info">
+                        <a href="register.html">注册账户</a> | <a href="forgetPwd.html">忘记密码</a>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- /login-box -->
+        <!-- user-enter -->
+        <div class="user-enter">
+            <div class="title">
+                <h2>她们已经入驻Bees</h2>
+            </div>
+            <div class="content" id="user-enter">
+                <script type="text/html" id="tpl-user-enter">
+                <ul class="nav">
+                    {{each resultList as nav i}}
+                    <li data-index="{{i}}"><a href="{{nav.url}}"><img src="{{nav.headImg}}" alt="{{nav.title}}" /></a><span></span></li>
+                    {{/each}}
+                </ul>
+                <div class="clearfix"></div>
+                {{each resultList as content i}}
+                <!-- enter-box -->
+                <div class="enter-box" data-index="{{i}}">
+                    <dl>
+                        <dt>
+                            <div class="image-box">
+                                {{each content.imgList as img i}}
+                                <span class="img"><img src="{{img}}" /></span>
+                                {{/each}}
+                            </div>
+                        </dt>
+                        <dd>
+                            <div class="info">
+                                <h2>{{content.title}}</h2>
+                                <p>{{content.description}}</p>
+                                <a href="{{content.url}}" class="btn-right"></a>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <!-- /enter-box -->
+                {{/each}}
+                </script>
+            </div>
+        </div>
+        <!-- /user-enter -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<script type="text/javascript" src="./js/common_footer.js"></script>
+
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/login.js"></script>
+    <script>
+        window.onload = function(){
+            
+            updateImage();
+            deleteCookie('avatar','/')
+            deleteCookie('UserId','/')
+            deleteCookie('nickname','/')
+            deleteCookie('password','/')
+
+        }
+    </script>
+
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="1105665719" data-redirecturi="http://www.beeslm.com/QqBack.html" charset="utf-8"></script>
+
+<script type="text/javascript">
+   //调用QC.Login方法，指定btnId参数将按钮绑定在容器节点中
+   QC.Login({
+       //btnId：插入按钮的节点id，必选
+       btnId:"qqLoginBtn",    
+       //用户需要确认的scope授权项，可选，默认all
+       scope:"all",
+       //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+       size: "C_S"
+   }, function(reqData, opts){//登录成功
+       //根据返回数据，更换按钮显示状态方法
+       var dom = document.getElementById(opts['btnId']),
+       _logoutTemplate=[
+            //头像
+            '<span><img src="{figureurl}" class="{size_key}"/></span>',
+            //昵称
+            '<span>{nickname}</span>',
+            //退出
+            '<span><a href="javascript:QC.Login.signOut();">退出</a></span>'    
+       ].join("");
+       dom && (dom.innerHTML = QC.String.format(_logoutTemplate, {
+           nickname : QC.String.escHTML(reqData.nickname), //做xss过滤
+           figureurl : reqData.figureurl
+       }));
+   }, function(opts){//注销成功
+         alert('QQ登录 注销成功');
+   }
+);
+
+</script>
+
+ <script type="text/javascript">
+            
+            var redirect_url= 'www.beeslm.com/wexback.html'
+            $('.weixin-login').on('click',function(){
+             window.location.href='https://open.weixin.qq.com/connect/qrconnect?'+'appid=wx2b11b98876b8cd25&redirect_uri='+redirect_url+window.location.pathname.substr(1)+'&response_type=code&scope=snsapi_login&state=3d6be0a4035d839573b04816624a415e#wechat_redirect';
+            });
+</script>>
+
+
+
+<!--<script type="text/javascript">
+
+$(function(){
+    $('.login-form').validate({
+        rules : {
+            "phone" : { required : true, isMobile : true },
+            "password" : { required : true },
+            "verifyCode" : { required : true }
+        },
+        messages : {
+            "phone" : { required : "请输入手机号码" },
+            "password" : { required : "请输入密码" },
+            "verifyCode" : { required : "请输入验证码" }
+        }
+
+    });
+});
+</script> -->
+</body>
+</html>

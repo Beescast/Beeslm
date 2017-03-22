@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>注册页面 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <link type="text/css" rel="stylesheet" href="css/cropper.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="LOGO" /></a>
+        <ul class="nav">
+            <li><a href="index.html">首页</a><i></i></li>
+
+            <li><a href="about.html">关于bees</a><i></i></li>
+        </ul>
+        <div class="fr">
+            <a href="login.html" class="btn-lr btn-login">登录</a>
+            <a href="register.html" class="btn-lr btn-reg hover">注册</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>登录</span>
+        </div>
+        <!-- /position -->
+        <!-- register-box -->
+        <div class="login-box">
+            <div class="title">
+                <h3>主播注册及认证</h3>
+            </div>
+            <div class="content">
+                <form action="index.html" method="post" class="reg-form">
+                    <p><input type="text" name="truename" value="" class="ipt-txt" placeholder="真实姓名" /></p>
+                    <p><input type="text" name="idCard" value="" class="ipt-txt" placeholder="身份证号码" /></p>
+                    <div class="img-box">
+                        <dl data-toggle="modal" data-target="#uploadImage">
+                            <dd>身份证正面<input type="text" name="frontPic" value="" data-toggle="uploadImage" /></dd>
+                            <dt></dt>
+                        </dl>
+                        <dl data-toggle="modal" data-target="#uploadImage">
+                            <dd>身份证反面<input type="text" name="backPic" value="" data-toggle="uploadImage" /></dd>
+                            <dt></dt>
+                        </dl>
+                        <dl data-toggle="modal" data-target="#uploadImage">
+                            <dd>手持身份证照<input type="text" name="handPic" value="" data-toggle="uploadImage" /></dd>
+                            <dt></dt>
+                        </dl>
+                    </div>
+                    <p><input type="text" name="plat" value="" class="ipt-txt" placeholder="平台信息" /></p>
+                    <p><input type="text" name="liveRoom" value="" class="ipt-txt" placeholder="直播房间" /></p>
+                    <div class="img-box">
+                        <dl data-toggle="modal" data-target="#uploadImage">
+                            <dd>上传平台认证照片<input type="text" name="platPic" value="" data-toggle="uploadImage" /></dd>
+                            <dt></dt>
+                            
+                        </dl>
+                    </div>
+                    <p><input type="text" name="mobile" value="" class="ipt-txt" placeholder="手机号" id="inputMobile"/></p>
+                    <p>
+                        <input type="text" name="mobileCode" value="" class="ipt-txt msgCode" placeholder="短信验证码" />
+                        <a href="javascript:;" class="getCode" id="getTokenBtn" onclick="getToken()" >获取验证码</a>
+                    </p>
+                    <div class="error-info"></div>
+                    <button type="submit" class="ipt-reg-submit">提交注册</button>
+                    <div class="protocol">
+                        <input type="checkbox" name="ckd_protocol" value="" />
+                        我已阅读并同意遵守<a href="agreement.html">《网站服务协议》</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- register-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+
+<!-- 上传图片 START -->
+<div class="iDialog" id="uploadImage" title="图片裁剪">
+    <iframe src="prompt/uploadImage.html" id="uploadImageFrame" scrolling="no" frameborder="0" style="width:100%; height: 410px;;"></iframe>
+</div>
+<!-- 上传图片 END -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/register.js"></script>
+  <script>
+        window.onload = function(){
+           
+            deleteCookie('sessionKey','/')
+            deleteCookie('avatar','/')
+            deleteCookie('UserId','/')
+            deleteCookie('nickname','/')
+
+        }
+    </script>
+</body>
+</html>

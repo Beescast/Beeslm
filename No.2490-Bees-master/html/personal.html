@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+
+</head>
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="LOGO" /></a>
+        <ul class="nav">
+            <li><a href="index.html">首页</a><i></i></li>
+            <li><a href="buyMeal.html">套餐购买</a><i></i></li>
+        
+            <li class="active"><a href="personal.html">个人页</a><i></i></li>
+            <li><a href="store.html">小商城</a><i></i></li>
+            <li><a href="offer.html">悬赏任务</a><i></i></li>
+            <li><a href="about.html">关于bees</a><i></i></li>
+        </ul>
+        <div class="fr">
+            <a href="account.html" class="top-head" id="userAvart"></a>
+            <div class="top-user-name" id="userName"></div>
+            <a href="loginOut.html" class="top-exit" onclick="loginOut()">退出</a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>我的订单</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                    <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li class="active"><a href="personal.html">我的订单</a></li>
+                        <li><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title">我的订单</div>
+                    <div class="personal-list">
+                        <table class="myOrder">
+                            <thead>
+                                <tr>
+                                    <th>名称/种类</th>
+                                    <th>状态</th>
+                                    <th>支付方式</th>
+                                    <th>价格</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="order-list">
+                                <script type="text/html" id="tpl-order-list">
+                                    {{each resultList as value}}
+                                    <tr>
+                                        <td colspan="5">
+                                            <span>{{value.submitTime}}</span>
+                                            <span class="ml35">订单号：{{value.id}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="{{value.url}}" class="tit">{{value.packageName}}</a></td>
+                                        <td>{{value.statusString}}</td>
+
+                                        <td>
+                                        {{if value.status == 0 }}
+                                        待支付
+                                        {{else}}
+                                        已付款
+                                        {{/if}}
+                                        </td>
+
+                                        <td>￥{{value.price}}</td>
+                                        <td>
+                                            {{if value.statusString == "已结束"}}
+                                            <a href="javascript:;" class="comment" data-toggle="modal" data-target="#orderInfo" data-id="{{value.id}}" data-name="{{value.packageName}}">去评价</a>
+                                            {{else if value.statusString == "待付款"}}
+                                            <a href="buyMeal_cartList.html?id={{value.id}}&orderNo={{value.id}}" class="comment" data-toggle="modal"  data-price="{{value.price}}" data-id="{{value.orderNo}}">去支付</a>
+                                       
+                                            {{else if value.statusString == "待启动"}}
+                                            {{else if value.status == 0}}
+                                             <a href="javascript:;" class="comment" data-toggle="modal" data-target="#cancelOrder" data-id="{{value.id}}">取消订单</a>
+                                            {{/if}}
+
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </script>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<!-- 订单评价 START-->
+<div class="prompt-box" id="orderInfo" title="订单评价">
+    <form action="#" method="post" class="order-say">
+        <dl>
+            <dt>订单号：</dt>
+            <dd><span id="dialog_orderText"></span></dd>
+        </dl>
+        <dl>
+            <dt>套餐名称：</dt>
+            <dd id="paname">月套餐</dd>
+        </dl>
+        <dl>
+            <dt>评语：</dt>
+            <dd>
+                <input type="hidden" name="orderId" id="dialog_orderId" value="" />
+                 <input type="hidden" name="sessionKey" id="sessionKey" value="" />
+                <textarea class="tta" name="intro" placeholder="最少2个字，最多200个字"></textarea>
+                <div class="error"></div>
+                <button type="submit" class="ipt-submit">提&nbsp;&nbsp;&nbsp;&nbsp;交</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 订单评价 END-->
+<!-- 钱包支付 START -->
+<div class="prompt-box" title="钱包支付" id="packagePay">
+    <form action="#" method="post" class="packagePay">
+        <dl>
+            <dt>订单金额：</dt>
+            <dd>￥<span id="viewPayPrice">300.00</span></dd>
+        </dl>
+        <dl>
+            <dt>钱包余额：</dt>
+            <dd>
+                <a href="javascript:;" class="link">余额不够？请充值</a>
+                ￥<span id="lastPackagePrice">3900.00</span>
+            </dd>
+        </dl>
+        <input type="password" name="payPassword" value="" placeholder="支付密码" class="ipt-pwd" />
+        <div class="">
+            <a href="payPwd.html" class="link">请先设置支付密码</a>
+            <div class="error"></div>
+            <div class="clearfix"></div>
+        </div>
+        <input type="hidden" name="price" value="" id="payPriceInput" />
+        <input type="hidden" name="payId" value="" id="payPriceId" />
+        <button type="submit" class="ipt-submit">支&nbsp;&nbsp;&nbsp;&nbsp;付</button>
+    </form>
+</div>
+<!-- 钱包支付 END -->
+<!-- 确定取消订单吗 START -->
+<div class="prompt-box" title="提示" id="cancelOrder">
+    <div class="hint-info">
+        <form action="#" method="post" class="cancelOrder">
+        <h2>确定取消订单吗？</h2>
+        <p id ="cancelOrderId">订单号：201602040009</p>
+        <br />
+        <button type="button" class="btn btn-normal"data-dismiss="modal" id="btn-cancelOrder">确&nbsp;&nbsp;&nbsp;&nbsp;定</button>
+    </div>
+    </form>
+</div>
+<!-- 确定取消订单吗 END -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/myOrder.js"></script>
+ <script>
+
+    function GetQueryString(name)
+    {
+         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+         var r = window.location.search.substr(1).match(reg);
+         if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    window.onload = function(){ 
+
+        var sessionKey = getCookieValue("sessionKey");
+            //document.getElementById("txtUserName").value = userNameValue;  
+        if(sessionKey==''){
+
+            window.location.href="login.html";
+        }
+        $("#sessionKey").val(sessionKey);
+        
+        var userName = document.getElementById("userName");
+
+        var userAvart = document.getElementById("userAvart");
+        var headAvart = document.getElementById("headAvart");
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+               //introduce.innerHTML=data.data.response.result.content;
+               userName.innerHTML=data.data.response.result.nickname;
+
+                var Avart ='<img src="'+data.data.response.result.avatar+'" /><span></span>';
+                userAvart.innerHTML=Avart;
+                headAvart.innerHTML=Avart;     
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+       
+    }
+
+</script>
+
+</body>
+</html>

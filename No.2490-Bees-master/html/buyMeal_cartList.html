@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>套餐购买 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer minH8 buyMeal-wrapper">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <span>套餐购买</span>
+        </div>
+        <!-- /position -->
+        <!-- meal-cart -->
+        <div class="meal-cart">
+            <div class="meal-title">购买清单</div>
+            <form action="#" method="post" class="buy-cart">
+                <table class="cart">
+                    <thead>
+                        <tr>
+                            <th>套餐</th>
+                            <th>名称/规格</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="packagePic"></td>
+                            <td  id="tit"></td>
+                            <td><p class="price" id="price2">￥300</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="order-price"  id="price"></p>
+                                <p class="order-number" id="order-number"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: left;">选择支付方式</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div class="pay-type" id="payaction">
+                                  
+
+                                </div>
+                                <p class="pay-price" id="pay-price"></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!-- /meal-cart -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- 微信支付 START -->
+<div class="prompt-box" title="微信支付,支付完成后请到我的订单中查看订单状态哦" id="WXPay">
+    <dl style="font-size: 14px;
+    padding: 15px 20px;
+    width: 100%;">
+        <dt style="display: table;width: 100%;">订单金额：￥<span id="viewPayPrice">300.00</span></dt>
+        <a href="javascript:void(0)" class="codeImage" id="otherRegist">
+
+        <img id="identifyImage" src="" alt=""  height="200" width="200"/>
+
+        </a>
+    </dl>
+
+   
+</div>
+<!-- 微信支付 END -->
+
+<!-- 钱包支付 START -->
+<div class="prompt-box" title="钱包支付" id="packagePay">
+    <form action="#" method="post" class="packagePay">
+        <dl>
+            <dt>订单金额：</dt>
+            <dd>￥<span id="viewPayPrices">300.00</span></dd>
+        </dl>
+        <dl>
+            <input type="hidden" name="orderId" id="payPriceId">
+
+            <input type="hidden" name="sessionKey" id="sessionKey">
+            <dt>钱包余额：</dt>
+            <dd>
+                <a href="recharge.html" class="link">余额不够？请充值</a>
+                ￥<span id="lastPackagePrice">0</span>
+            </dd>
+        </dl>
+        <input type="password" name="password" value="" placeholder="支付密码" class="ipt-pwd" />
+        <div class="">
+            <a href="payPwd.html" class="link">请先设置支付密码</a>
+            <div class="error"></div>
+            <div class="clearfix"></div>
+        </div>
+        <input type="hidden" name="price" value="" id="payPriceInput" />
+        
+        <button type="submit" class="ipt-submit">支&nbsp;&nbsp;&nbsp;&nbsp;付</button>
+    </form>
+</div>
+<!-- 钱包支付 END -->
+
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/myOrder.js"></script>
+<script type="text/javascript">
+
+     window.onload = function(){ 
+
+         function GetQueryString(name)
+        {
+             var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+             var r = window.location.search.substr(1).match(reg);
+             if(r!=null)return  unescape(r[2]); return null;
+        }
+       var id = GetQueryString("id");
+       if(id==null){
+    
+         var price_id = GetQueryString('price_id');
+         var mealPrice = document.getElementById("mealPrice"); 
+         if(price_id==null){
+             price_id =1;
+         } 
+         var packageId = GetQueryString('packageId');  
+
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/package/singlePrice?id="+price_id,
+        dataType:"json",
+        success:function(data){
+            if(data.code==200){
+                pricename = data.data.response.result.name;
+                packageId = data.data.response.result.packageId;  
+           }else{
+            alert(data.code)
+           }
+        }
+        });
+            var sessionKey = getCookieValue("sessionKey"); 
+            $.ajax({
+            async:false,
+            type:"POST",
+            url:serverUrl+"/order/add?packageId="+packageId+"&packagePriceId="+price_id+"&sessionKey="+sessionKey,
+            dataType:"json",
+            success:function(data){
+                if(data.code==200){
+
+                    id = data.data.response.orderId;
+
+               }else{
+                alert(data.code)
+               }
+            }
+        });
+       }
+
+       var sessionKey = getCookieValue("sessionKey");
+            $("#sessionKey").val(sessionKey)
+        $.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/order/info?id="+id+"&sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+
+            if(data.code==200){
+
+                $("#payaction").html("<a href='javascript:;' class='comment' data-toggle='modal' data-target='#WXPay' data-price='"+data.data.response.result.price+"' data-id='"+data.data.response.result.id+"' data-sessionKey='"+sessionKey+"'><img src='images/meal/btn_wx.png'></a><a href='javascript:;' id='alipay'><img src='images/meal/btn_pay.png'></a> <a href='javascript:;' class='comment' data-toggle='modal' data-target='#packagePay' data-price='"+data.data.response.result.price+"' data-id='"+data.data.response.result.id+"' data-sessionKey='"+sessionKey+"'><img src='images/meal/btn_pg.png'></a>")
+
+                $("#tit").html("<a href='' class='tit'>"+data.data.response.result.packageName+"</a>");
+                $("#price").html("订单总计：<span class='price'>￥"+data.data.response.result.price+ "</span>")
+                 $("#price2").html("￥"+data.data.response.result.price)
+                $("#pay-price").html("应付金额：￥"+data.data.response.result.price);
+                $("#order-number").html("订单号："+data.data.response.result.id);
+                $("#alipay").attr('href',serverUrl+'/pay/alipay.html?orderId='+data.data.response.result.id+"&type=package");
+                $("#wxPay").attr('href','www.beeslm.com:8070/pay/pay.php?id='+data.data.response.result.id+'&type=package&sessionKey='+sessionKey);
+
+                
+                $("#packagePic").html('<a href="buyMeal.html" class="goods"><img src="'+data.data.response.result.packagePic+'" style="width:180px;height:100px"/></a>');
+                
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+$.ajax({
+        async:false,
+        type:"POST",
+        url:serverUrl+"/user/info?id="+id+"&sessionKey="+sessionKey,
+        dataType:"json",
+        success:function(data){
+
+            if(data.code==200){
+
+                 $("#lastPackagePrice").html(data.data.response.result.balance);
+                
+           }else{
+            alert(data.code)
+           }
+        }
+    
+
+    });
+
+
+}
+</script>>
+</body>
+</html>

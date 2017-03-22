@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <meta charset="UTF-8">
+    <title>个人页 - bees</title>
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
+    <![endif]-->
+</head>
+<body>
+<!-- header -->
+<div class='header'>
+<div class='container'>
+<a href='index.html' class='logo'><img src='images/logo.png' alt='LOGO' /></a>
+<ul class='nav' id="nav">
+
+</ul>
+
+<div class='fr' id="navfr">
+
+</div>
+
+<div class='clearfix'></div>
+</div>
+</div>
+<!-- /header -->
+<!-- mainer -->
+<div class="mainer">
+    <div class="container">
+        <!-- position -->
+        <div class="position">
+            <a href="index.html">首页</a> &gt; <a href="personal.html">个人中心</a> &gt; <span>我的任务</span>
+        </div>
+        <!-- /position -->
+        <!-- personal-box -->
+        <div class="personal-box">
+            <div class="box-cell">
+                <!-- pb-left -->
+                <div class="pb-left">
+                   <div class="head" id="headAvart"></div>
+                    <ul>
+                        <li><a href="personal.html">我的订单</a></li>
+                        <li class="active"><a href="myTask.html">我的任务</a></li>
+                        <li><a href="liveData.html">直播数据</a></li>
+                        <li><a href="generalize.html">推广信息</a></li>
+                        <li><a href="account.html">账户资料</a></li>
+                    </ul>
+                </div>
+                <!-- /pb-left -->
+            </div>
+            <div class="box-cell">
+                <!-- pb-right -->
+                <div class="pb-right">
+                    <div class="pb-title">我的任务</div>
+                    <div class="personal-list">
+                        <table class="myTask">
+                            <thead>
+                            <tr>
+                                <th>任务类型/任务说明</th>
+                                <th>发布时间</th>
+                                <th>任务状态</th>
+                                <th>任务金额</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody id="task-list">
+                                <script type="text/html" id="tpl-task-list">
+                                    {{each resultList as value}}
+                                    <tr>
+                                        <td><a href="{{value.url}}" class="tit">{{value.catName}}</a><span class="taskType">({{value.typeText}})</span></td>
+                                        <td class="gray">{{value.startTime}}</td>
+                                        <td rowspan="2">{{value.payText}}</td>
+                                        <td rowspan="2">{{value.price}}</td>
+                                         {{if value.payStatus == 0}}
+
+                                        <td rowspan="2" class="taskOkay" ><a href="javascript:;" data-toggle="modal" data-target="#finishDuties" data-id="{{value.id}}" data-name="{{value.illustration}}" data-title="{{value.catName}}">完成任务</a></td>
+                                        {{/if}}
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <p class="desc">{{value.illustration}}</p>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </script>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /pb-right -->
+            </div>
+        </div>
+        <!-- /personal-box -->
+    </div>
+</div>
+<!-- /mainer -->
+<!-- 完成任务 START  -->
+<div class="prompt-box" title="完成任务" id="finishDuties">
+    <form action="#" method="post" class="finishDuties">
+        <dl class="table">
+            <dt>任务类型：</dt>
+            <dd id="taskTypes">视频流广告</dd>
+        </dl>
+        <input type="hidden" name="taskId" id="taskId">
+        <input type="hidden" name="sessionKey" value="" class="ipt-text" id="sessionKey" />
+        <dl class="table">
+            <dt>任务说明：</dt>
+            <dd id="title">......</dd>
+        </dl>
+        <dl class="table">
+            <dt>上传截图：</dt>
+            <dd>
+                <div class="upload-image-btn">
+                    <button type="button" class="ipt-button" id="btn-finishDuties">上传图片</button>
+                    <p>（最少三张截图）</p>
+                </div>
+                <div class="img-box" id="selectImage-finishDuties">
+                    <input type="number" name="littleNumber" value="0" class="littleNumber" />
+                </div>
+                <div class="error"></div>
+                <button type="submit" name="submit" class="ipt-submit">提交审核</button>
+            </dd>
+        </dl>
+    </form>
+</div>
+<!-- 完成任务 END -->
+<!-- 图片裁剪 START-->
+<div class="prompt-box" id="uploadImage" title="图片裁剪">
+    <iframe src="prompt/uploadImage.html" id="uploadImageFrame" scrolling="no" frameborder="0" style="width:100%; height: 410px;;"></iframe>
+</div>
+<!-- 图片裁剪 END-->
+<!-- footer -->
+<div class="footer">
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="left-info">
+                <p class="big"><i class="icon-tel"></i> 400-800-8010</p>
+                <p><i class="icon-email"></i> bees@126.com</p>
+            </div>
+            <p>Copyright © 2014-2016 BEES.net</p>
+        </div>
+    </div>
+    <!-- /footer-bottom -->
+</div>
+<!-- /footer -->
+<script type="text/javascript" src="js/plugs/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/plugs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/plugs/jquery.validate.method.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/plugs/artTemplate/helper.js"></script>
+<script type="text/javascript" src="js/jquery.extends.1.0.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/package/myTask.js"></script>
+<script type="text/javascript" src="js/prompt.js"></script>
+
+<script type="text/javascript">
+    var headAvart = document.getElementById("headAvart");
+
+    var avatar = getCookieValue("avatar");
+    var Avart ='<img src="'+avatar+'" /><span></span>';
+
+        headAvart.innerHTML=Avart; 
+        var sessionKey = getCookieValue("sessionKey");
+        
+        document.getElementById("sessionKey").value=sessionKey;
+
+</script>
+
+</body>
+</html>

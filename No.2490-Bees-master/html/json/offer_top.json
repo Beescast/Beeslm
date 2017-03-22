@@ -1,0 +1,28 @@
+{
+  "resultList" : [
+    {
+      "title" : "任务状态",
+      "list" : [
+        { "title" : "全部任务", "url" : "offer.html?1=1"},
+        { "title" : "招募中", "url" : "?status=0"},
+        { "title" : "招募完成", "url" : "?status=1"}
+      ]
+    },
+    {
+      "title" : "报名状态",
+      "list" : [
+        { "title" : "全部状态", "url" : "offer.html?1=1"},
+        { "title" : "已报名", "url" : "?sign=1"},
+        { "title" : "未报名", "url" : "?sign=0"}
+      ]
+    },
+    {
+      "title" : "任务类型",
+      "list" : [
+        { "title" : "全部类型", "url" : "offer.html?1=1"},
+        { "title" : "我关注的", "url" : "?catId=-1"}
+        
+      ]
+    }
+  ]
+}

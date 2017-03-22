@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!-- 123.56.239.203 -->
+<generatorConfiguration>
+	<classPathEntry location="lib/mysql-connector-java-5.1.21.jar" />
+	<context id="bees">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="mybatis.MysqlPagePlugin" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://123.56.239.203:3306/bees?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull"
+            userId="mei" password="mei1234*">
+        </jdbcConnection>
+
+        
+		
+		<javaModelGenerator targetPackage="org.bees.biz.persistence.model"
+			targetProject="bees/src/main/java" />
+		<sqlMapGenerator targetPackage="org.bees.biz.persistence.xml"
+			targetProject="bees/src/main/resources" />
+		<javaClientGenerator targetPackage="org.bees.biz.persistence.mapper"
+			targetProject="bees/src/main/java" type="XMLMAPPER" />
+		<table tableName="packages_order" schema="bees" domainObjectName="PackagesOrder">
+        </table>
+		
+		<!--
+		<table tableName="task_sign_pic" schema="bees" domainObjectName="TaskSignPic">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="user_auth" schema="bees" domainObjectName="UserAuth">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="product" schema="bees" domainObjectName="Product">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="config" schema="bees" domainObjectName="Config">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="friend_link" schema="bees" domainObjectName="FriendLink">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="leave_msg" schema="bees" domainObjectName="LeaveMsg">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="live" schema="bees" domainObjectName="Live">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="live_gift" schema="bees" domainObjectName="LiveGift">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="live_people" schema="bees" domainObjectName="LivePeople">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="market" schema="bees" domainObjectName="Market">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		<table tableName="order_log" schema="bees" domainObjectName="OrderLog">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="task_category" schema="bees" domainObjectName="TaskCategory">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        
+        <table tableName="task_sign" schema="bees" domainObjectName="TaskSign">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="task" schema="bees" domainObjectName="Task">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="admin" schema="bees" domainObjectName="Admin">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+		
+        <table tableName="wallet_turnover" schema="bees" domainObjectName="WalletTurnover">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+ 		
+ 		<table tableName="wallet_cash" schema="bees" domainObjectName="WalletCash">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+ 		<table tableName="banner" schema="bees" domainObjectName="Banner">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+ 		<table tableName="notice" schema="bees" domainObjectName="Notice">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table> -->
+         <!-- <table tableName="user" schema="bees" domainObjectName="User">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table> 
+        <table tableName="user_pic" schema="bees" domainObjectName="UserPic">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+        <!-- <table tableName="packages" schema="bees" domainObjectName="Packages">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="packages_price" schema="bees" domainObjectName="PackagesPrice">
+             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="packages_order" schema="bees" domainObjectName="PackagesOrder">
+             
+        </table> -->
+        
+        
+        
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,73 @@
+{
+  "total" : 100,
+  "rows" : 10,
+  "offset" : 0,
+  "resultList" : [
+    {
+      "title" : "视频流广告1",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募中",
+      "applyStatus" : "参与报名",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    },
+    {
+      "title" : "视频流广告2",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募中",
+      "applyStatus" : "已报名",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    },
+    {
+      "title" : "视频流广告3",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募完成",
+      "applyStatus" : "已结束",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    },
+    {
+      "title" : "视频流广告1",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募中",
+      "applyStatus" : "参与报名",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    },
+    {
+      "title" : "视频流广告2",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募中",
+      "applyStatus" : "已报名",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    },
+    {
+      "title" : "视频流广告3",
+      "url" : "javascript:;",
+      "date" : "2016-07-17 09:23",
+      "price" : "￥300.00",
+      "number" : 3,
+      "taskStatus" : "招募完成",
+      "applyStatus" : "已结束",
+      "applyUrl" : "javascript:;",
+      "description" : "很多人都有过打开网页右下角莫名弹出广告的经历吧，有一点电脑常识的同学一般都是立刻杀毒，以为是中了木马。"
+    }
+  ]
+}

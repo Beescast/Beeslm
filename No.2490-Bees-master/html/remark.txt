@@ -1,0 +1,49 @@
+index.html                          //首页                    OK
+
+login.html                          //登录页面                OK
+messageLogin.html                   //短信验证登录            OK
+register.html                       //注册页面                OK
+forgetPwd.html                      //忘记密码                OK
+setNewPwd.html                      //设置新密码              OK
+
+buyMeal.html                    //套餐购买                    OK
+buyMeal_cart.html               //确认订单                    OK
+buyMeal_cancel.html             //订单完成                    OK
+
+personal.html                   //个人页                      OK
+myTask.html                     //我的任务                    OK
+liveData.html                   //直播数据                    OK
+
+generalize.html                 //推广信息                    OK
+valueAnalysis.html              //人群价值分析                OK
+
+account.html                    //账户资料                    OK
+
+changePhone.html                //更换手机                    OK
+newPhone.html                   //新手机号                    OK
+
+recharge.html                   //充值                        OK
+recharge_success.html           //充值成功                    OK
+
+runningWater.html               //钱包流水                    OK
+withdrawDeposit.html            //提现                        OK
+
+liveApprove.html                //主播认证                    OK
+offerType.html                  //设置赏金任务类型            OK
+editPwd.html                    //修改登录密码                OK
+
+payPwd.html                     //修改支付密码                OK
+newPayPwd.html                  //设置支付密码                OK
+
+bindBank.html                   //绑定银行卡                  OK
+otherInfo.html                  //其他资料                    OK
+backIdea.html                   //反馈意见                    OK
+
+
+
+store.html                      //小商城                       OK
+offer.html                      //悬赏任务                     OK
+about.html                      //关于bees                     OK
+
+notice_list.html                //公告列表                     OK
+notice_detail.html              //公告详情                     OK

@@ -1,0 +1,17 @@
+{
+  "total" :100,
+  "rows" : 10,
+  "offset" : 0,
+  "balance" : 2700.0,
+  "resultList" : [
+    { "bNo" : "2016070500001", "dateTime" : "2016-06-02 10:00:00", "bizType" : "购买套餐", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500002", "dateTime" : "2016-06-04 10:00:00", "bizType" : "购买套餐", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500003", "dateTime" : "2016-06-05 10:00:00", "bizType" : "任务收益", "priceType" : "+", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500004", "dateTime" : "2016-06-06 10:00:00", "bizType" : "充值", "priceType" : "+", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500005", "dateTime" : "2016-06-11 10:00:00", "bizType" : "提现", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500006", "dateTime" : "2016-06-13 10:00:00", "bizType" : "购买套餐", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500007", "dateTime" : "2016-06-16 10:00:00", "bizType" : "购买套餐", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500008", "dateTime" : "2016-06-18 10:00:00", "bizType" : "任务收益", "priceType" : "+", "price" : 300.00, "realityBalance" : 2400.00  },
+    { "bNo" : "2016070500009", "dateTime" : "2016-06-24 10:00:00", "bizType" : "购买套餐", "priceType" : "-", "price" : 300.00, "realityBalance" : 2400.00  }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "total" :100,
+  "rows" : 10,
+  "offset" : 0,
+  "resultList" : [
+    { "title" : "弹窗广告1弹窗广告1弹窗广告1弹窗广告1", "url" : "javascript:;", "desc" : "高效推广信息渠道高效推广信息渠道高效推广信息渠道高效推广信息渠道高效推广信息渠道高效推广信息渠道", "price" : "300.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告2", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "200.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告3", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "600.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告4", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "300.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告5", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "700.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告6", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "300.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告7", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "100.00", "imageUrl" : "images/store_img.jpg" },
+    { "title" : "弹窗广告8", "url" : "javascript:;", "desc" : "高效推广信息渠道", "price" : "300.00", "imageUrl" : "images/store_img.jpg" }
+  ]
+}

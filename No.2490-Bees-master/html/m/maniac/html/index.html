@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <title>Maniac - Dashboard</title>
+		
+		<!-- Maniac stylesheets -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/font-awesome.min.css" />
+        <link rel="stylesheet" href="../css/gritter/jquery.gritter.css" />
+        <link rel="stylesheet" href="../css/bootstrap-tagsinput/bootstrap-tagsinput.css" />
+        <link rel="stylesheet" href="../css/jquery-jvectormap/jquery-jvectormap-1.2.2.css" />
+        <link rel="stylesheet" href="../css/animate/animate.min.css" />
+        <link rel="stylesheet" href="../css/iCheck/all.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+		
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+	</head>
+	<body class="fixed">
+        <!-- Header -->
+        <header>
+			<a href="index.html" class="logo"><i class="fa fa-bolt"></i> <span>Maniac</span></a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="navbar-btn sidebar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+				<div class="navbar-header">
+                    <form role="search" class="navbar-form" method="post" action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search..."/>
+                            <span class="input-group-btn">
+                                <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+				</div>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown-notifications">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell"></i><span class="label label-warning">5</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><i class="fa fa-bell"></i>  You have 5 new notifications</li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-users success"></i> New user registered</a></li>
+                                        <li><a href="#"><i class="fa fa-heart info"></i> Jane liked your post</a></li>
+                                        <li><a href="#"><i class="fa fa-envelope warning"></i> You got a message from Jean</a></li>
+										<li><a href="#"><i class="fa fa-info success"></i> Privacy settings have been changed</a></li>
+										<li><a href="#"><i class="fa fa-comments danger"></i> New comments waiting approval</a></li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all notification</a></li>
+                            </ul>
+                        </li>
+						
+                        <li class="dropdown dropdown-messages">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope"></i><span class="label label-success">6</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><i class="fa fa-envelope"></i> You have 6 messages</li>
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left"><img src="../img/avatar.jpg" class="img-rounded" alt="image"/></div>
+                                                <h4>Jill Doe<small><i class="fa fa-clock-o"></i> 1 mins</small></h4>
+                                                <p>Can we meet somewhere?</p>
+                                            </a>
+                                        </li>
+										
+                                        <li>
+                                            <a href="#">
+                                                <div class="pull-left"><img src="../img/avatar.jpg" class="img-rounded" alt="image"/></div>
+                                                <h4>John Doe<small><i class="fa fa-clock-o"></i> 2 mins</small></h4>
+                                                <p>Please send me a new email.</p>
+                                            </a>
+                                        </li>
+										
+										<li>
+                                            <a href="#">
+                                                <div class="pull-left"><img src="../img/avatar.jpg" class="img-rounded" alt="image"/></div>
+                                                <h4>Jeremy Doe<small><i class="fa fa-clock-o"></i> 30 mins</small></h4>
+                                                <p>Don't forget to subscribe to...</p>
+                                            </a>
+                                        </li>
+										
+										<li>
+                                            <a href="#">
+                                                <div class="pull-left"><img src="../img/avatar.jpg" class="img-rounded" alt="image"/></div>
+                                                <h4>Jean Doe<small><i class="fa fa-clock-o"></i> 2 hours</small></h4>
+                                                <p>I sent you a mail about me.</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all messages</a></li>
+                            </ul>
+                        </li>
+						
+                        <li class="dropdown dropdown-tasks">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i><span class="label label-danger">1</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><i class="fa fa-tasks"></i>  You have 1 new task</li>
+                                <li>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <h3>PHP Developing<small class="pull-right">32%</small></h3>
+                                                <div class="progress">
+													<div class="progress-bar progress-bar-success" style="width: 32%" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <h3>Database Repair<small class="pull-right">14%</small></h3>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-warning" style="width: 14%" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <h3>Backup Create<small class="pull-right">65%</small></h3>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-info" style="width: 65%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <h3>Create New Modules<small class="pull-right">80%</small></h3>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">View all tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+						
+                        <li class="dropdown widget-user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<img src="../img/avatar.jpg" class="pull-left" alt="image" />
+                                <span>John Doe <i class="fa fa-caret-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+								<li>
+									<a href="#"><i class="fa fa-cog"></i>Settings</a>
+								</li>
+								<li>
+									<a href="profile.html"><i class="fa fa-user"></i>Profile</a>
+								</li>
+								<li class="footer">
+									<a href="#"><i class="fa fa-power-off"></i>Logout</a>
+								</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+		<!-- /.header -->
+		 
+		<!-- wrapper -->
+        <div class="wrapper">
+            <div class="leftside">
+                <div class="sidebar">
+                    <div class="user-box">
+                        <div class="avatar">
+                            <img src="../img/avatar.jpg" alt="" />
+                        </div>
+                        <div class="details">
+                            <p>John Doe</p>
+                            <span class="position">Superadmin</span>
+                        </div>
+						<div class="button">
+							<a href="login.html"><i class="fa fa-power-off"></i></a>
+						</div>
+                    </div>
+                    <ul class="sidebar-menu">
+						<li class="title">Navigation</li>
+                        <li class="active">
+                            <a href="index.html">
+                                <i class="fa fa-home"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="inbox.html">
+                                <i class="fa fa-envelope"></i> <span>Inbox</span>
+                                <small class="label pull-right">10</small>
+                            </a>
+                        </li>
+                        <li class="sub-nav">
+                            <a href="#">
+                                <i class="fa fa-briefcase"></i>
+                                <span>UI Elements</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="icons.html">Icons</a></li>
+                                <li><a href="buttons.html">Buttons</a></li>
+                                <li><a href="sliders.html">Sliders</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-nav">
+                            <a href="#">
+                                <i class="fa fa-pencil"></i> <span>Forms</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="form-elements.html">Form Elements</a></li>
+                                <li><a href="form-validation.html">Form Validation</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-nav">
+                            <a href="#">
+                                <i class="fa fa-table"></i> <span>Tables</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="basic-tables.html">Basic tables</a></li>
+                                <li><a href="data-tables.html">Data tables</a></li>
+                            </ul>
+                        </li>
+						<li class="sub-nav">
+                            <a href="#">
+                                <i class="fa fa-signal"></i>
+                                <span>Charts</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="flot.html">Flot</a></li>
+                                <li><a href="morris.html">Morris</a></li>
+                            </ul>
+                        </li>
+						 <li>
+                            <a href="widgets.html">
+                                <i class="fa fa-th"></i> <span>Widgets</span> <small class="label label-success pull-right">new</small>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="calendar.html">
+                                <i class="fa fa-calendar"></i> <span>Calendar</span>
+                            </a>
+                        </li>
+                        <li class="sub-nav">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span>Other Pages</span>
+                                <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="404.html">404 Error</a></li>
+                                <li><a href="blank.html">Blank Page</a></li>
+                                <li><a href="invoice.html">Invoice</a></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="lockscreen.html">Lockscreen</a></li>
+                                <li><a href="timeline.html">Timeline</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+					<div class="sidebar-widget online-users">&nbsp;
+						<div class="body">
+							<div class="title">Online Admins <a href="#" class="pull-right"><i class="fa fa-cog"></i></a></div>
+							
+							<a href="#" class="full-width">
+								<div class="img online pull-left"><img src="../img/avatar.jpg" alt="User" /></div>
+								<div class="info pull-left">
+									<div class="name">Jill Doe</div>
+									<div class="status">News Writer</div>
+								</div>
+								<div class="pull-right activity">
+									<i class="fa fa-clock-o"></i> now
+								</div>
+							</a>
+							
+							<a href="#" class="full-width">
+								<div class="img away pull-left"><img src="../img/avatar.jpg" alt="User" /></div>
+								<div class="info pull-left">
+									<div class="name">Jeremy Doe</div>
+									<div class="status">Moderator</div>
+								</div>
+								<div class="pull-right activity">
+									<i class="fa fa-clock-o"></i> 5 m
+								</div>
+							</a>
+							
+							<a href="#" class="full-width">
+								<div class="img inactive pull-left"><img src="../img/avatar.jpg" alt="User" /></div>
+								<div class="info pull-left">
+									<div class="name">Jill Doe</div>
+									<div class="status">Uploader</div>
+								</div>
+								<div class="pull-right activity">
+									<i class="fa fa-clock-o"></i> 1 h
+								</div>
+							</a>
+							
+							<a href="#" class="full-width">
+								<div class="img online pull-left"><img src="../img/avatar.jpg" alt="User" /></div>
+								<div class="info pull-left">
+									<div class="name">Jean Doe</div>
+									<div class="status">News Writer</div>
+								</div>
+								<div class="pull-right activity">
+									<i class="fa fa-clock-o"></i> now
+								</div>
+							</a>
+							
+							<div class="footer">
+								<div class="input-group">
+									<input type="text" class="form-control" Placeholder="Search..." />
+									<div class="input-group-btn">
+                                         <button class="btn btn-primary btn-sm"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+							</div>
+						</div>
+					</div>
+				 </div>
+            </div>
+
+            <div class="rightside">
+                <div class="page-head">
+                    <h1>Dashboard  <small>awesome features in one theme</small></h1>
+                    <ol class="breadcrumb">
+						<li>You are here:</li>
+                        <li><a href="#">Home</a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </div>
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="custom-box palette-alizarin">
+                                <h3 class="timer" data-start="0" data-from="0" data-to="155" data-speed="3000" data-refresh-interval="10"></h3>
+                                <p>Registered users</p>
+                                <i class="fa fa-users"></i>
+							</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="custom-box palette-nephritis">
+                                <h3 class="timer" data-start="0" data-from="0" data-to="135" data-speed="3000" data-refresh-interval="10"></h3>
+                                <p>Daily Visitors</p>
+								<i class="fa fa-signal"></i>
+							</div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="custom-box palette-peter-river">
+                                <h3 class="timer" data-start="0" data-from="0" data-to="17" data-speed="3000" data-refresh-interval="10"></h3>
+                                <p>Messages</p>
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <div class="custom-box palette-wet-asphalt">
+                                <h3 class="timer" data-start="0" data-from="0" data-to="45" data-speed="3000" data-refresh-interval="10"></h3>
+                                <p>Subscribers</p>
+                                <i class="fa fa-rss"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main row -->
+                    <div class="row">
+						<div class="col-lg-6"> 
+							<div class="box">
+                                <div class="box-title">
+                                    <i class="fa fa-signal"></i>
+                                    <h3>Website Statistics</h3>
+                                    <div class="pull-right box-toolbar">
+                                        <a href="#" class="btn btn-link btn-xs collapse-box"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                   <div class="flot">
+										<div id="placeholder" class="flot-placeholder"></div>
+									</div>
+                                </div>
+                            </div>
+						</div>	
+						
+						<div class="col-lg-6">
+                            <div class="box">
+                                <div class="box-title">
+                                    <i class="fa fa-map-marker"></i>
+                                    <h3>Vector Map</h3>
+                                    <div class="pull-right box-toolbar">
+                                        <a href="#" class="btn btn-link btn-xs collapse-box"><i class="fa fa-chevron-up"></i></a>
+                                        <a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+                                    </div>           
+                                </div>
+                                <div class="box-body no-padding">
+                                    <div id="map" style="height: 395px;"></div>
+                                </div>
+                            </div>
+						</div>
+						
+						<div class="clearfix"></div>
+						<div class="hr"></div>
+					</div>
+					
+					
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="box" style="height: 360px">
+                                <div class="box-title">
+                                    <i class="fa fa-envelope"></i>
+                                    <h3>Quick Post</h3>
+                                    <div class="pull-right box-toolbar">
+                                        <a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+                                    </div>          
+                                </div>
+                                <div class="box-body">
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Title"/>
+                                        </div> 
+										<div class="form-group">
+                                            <input type="text" class="form-control" value="post, article, tags, put" data-toggle="tags" />
+                                        </div>
+                                        <div>
+                                            <textarea placeholder="Content" class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="box-footer clearfix">
+                                    <button class="pull-left btn btn-success">Publish <i class="fa fa-arrow-circle-right"></i></button>
+                                    <button class="pull-right btn btn-default">Reset <i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div><!-- /.Left col -->
+					
+                        <div class="col-lg-4">
+                            <div class="box" style="height: 360px">
+                                <div class="box-title">
+									<i class="fa fa-comments-o"></i> 
+                                    <h3>Chat</h3>
+                                    <div class="pull-right box-toolbar">
+                                        <a href="#" class="btn btn-link btn-xs" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li><a href="#"><i class="fa fa-circle text-success"></i> Online</a></li>
+                                                <li><a href="#"><i class="fa fa-circle text-danger"></i> Offline</a></li>
+                                            </ul>
+                                        <a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                                <div class="box-body chat" id="chat-box">
+                                    <div class="item">
+                                        <img src="../img/avatar.jpg" alt="user" class="img-thumbnail"/>
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
+                                                Jill Doe
+                                            </a>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="../img/avatar.jpg" alt="user image" class="img-thumbnail"/>
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
+                                                John Doe
+                                            </a>
+                                           
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+                                        </p>
+                                    </div>
+                                    <div class="item">
+                                        <img src="../img/avatar.jpg" alt="user image" class="img-thumbnail"/>
+                                        <p class="message">
+                                            <a href="#" class="name">
+                                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
+                                                Jeremy Doe
+                                            </a>
+                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="box-footer">
+                                    <div class="input-group">
+                                        <input class="form-control" placeholder="Send a message..."/>
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="col-lg-4">
+                            <div class="box" style="height: 360px">
+                                <div class="box-title">
+                                    <i class="fa fa-check-square-o"></i>
+                                    <h3>ToDo List</h3>
+                                    <div class="pull-right box-toolbar">
+                                        <a href="#" class="btn btn-link btn-xs remove-box"><i class="fa fa-plus"></i></a>
+                                    </div> 
+                                </div>
+                                <div class="box-body">
+                                    <ul class="todo">
+                                        <li class="check">
+                                            <input type="checkbox" id="checkbox" />            
+                                            <span class="text">Write new article</span>
+                                            <small class="label label-info"><i class="fa fa-clock-o"></i> 1 mins</small>
+                                        </li>
+                                        <li>                      
+                                            <input type="checkbox"/>
+                                            <span class="text">Test new item page</span>
+                                            <small class="label label-warning"><i class="fa fa-clock-o"></i> 3 mins</small>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox"/>
+                                            <span class="text">Create new plugins for theme</span>
+                                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 42 mins</small>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox"/>
+                                            <span class="text">Check mailbox and new mails</span>
+                                            <small class="label label-default"><i class="fa fa-clock-o"></i> 3 hours</small>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox"/>
+                                            <span class="text">Setup the new theme</span>
+                                            <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 day</small>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox"/>
+                                            <span class="text">Buy a goat</span>
+                                            <small class="label label-success"><i class="fa fa-clock-o"></i> 1 week</small>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="box-footer clearfix no-border no-padding-top">
+                                    <button class="btn btn-block btn-danger">See all tasks</button>
+                                </div>
+                            </div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.wrapper -->
+
+        <!-- Javascript -->
+        <script src="../js/plugins/jquery/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/jquery-ui/jquery-ui-1.10.4.min.js" type="text/javascript"></script>
+		
+		<!-- Bootstrap -->
+        <script src="../js/plugins/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/gritter/jquery.gritter.min.js" type="text/javascript"></script>
+		
+		<!-- Charts -->
+		<script src="../js/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.pie.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.stack.min.js" type="text/javascript"></script>
+		<script src="../js/plugins/flot/jquery.flot.crosshair.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/jquery-jvectormap/jquery-jvectormap-europe-merc-en.js" type="text/javascript"></script>
+		
+		<!-- Interface -->
+        <script src="../js/plugins/jquery-countTo/jquery.countTo.js" type="text/javascript"></script>
+        <script src="../js/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/pace/pace.min.js" type="text/javascript"></script>
+		
+		<!-- Forms -->
+        <script src="../js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+        <script src="../js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <script src="../js/custom.js" type="text/javascript"></script>
+		
+		<!-- Dashboard -->
+        <script type="text/javascript">
+		(function($) {
+		"use strict";
+			// number count
+			$('.timer').countTo();
+			
+			//TagsInput
+			$("[data-toggle='tags']").tagsinput({ 
+				tagClass: function(item) { 
+					return 'label label-primary';
+				} 
+			});
+			
+			// chat scroll
+			$('#chat-box').slimScroll({
+				height: '250px'
+			}); 
+			
+			//iCheck
+			$("input[type='checkbox'], input[type='radio']").iCheck({
+				checkboxClass: 'icheckbox_minimal',
+				radioClass: 'iradio_minimal'
+			});
+	
+			// ToDo
+			$('#checkbox').on('ifChecked', function(event){
+				$('.check').addClass('through')
+			});
+			$('#checkbox').on('ifUnchecked', function(event){
+				$('.check').removeClass('through')
+			});
+			
+			// gritter
+			setTimeout(function() {
+                $.gritter.add({
+                    title: 'You have one new task for today',
+                    text: 'Go and check <a href="mailbox.html" class="text-warning">tasks</a> to see what you should do.<br/> Check the date and today\'s tasks.'
+                });
+            }, 2000);
+			
+			// flot
+						var v1 = [[1,50],[2,53],[3,40],[4,55],[5,47],[6,39],[7,44],[8,55],[9,43],[10,61],[11,52],[12,57],[13,64],[14,54],[15,49],[16,55],[17,53],[18,57],[19,68],[20,71],[21,84],[22,72],[23,88],[24,74],[25,87],[26,83],[27,76],[28,86],[29,93],[30,95]];
+						var v2= [[1,13],[2,18],[3,14],[4,25],[5,23],[6,17],[7,20],[8,26],[9,24],[10,27],[11,32],[12,37],[13,32],[14,28],[15,25],[16,21],[17,25],[18,33],[19,30],[20,27],[21,35],[22,28],[23,29],[24,28],[25,34],[26,27],[27,40],[28,29],[29,33],[30,45]];
+						var C= ["#7fb9d1","#e65353"];
+						var plot = $.plot("#placeholder", [
+							{ data: v1, label: "Total Visitors",lines:{fillColor: "#f8fcfd"}},
+							{ data: v2, label: "Unique Visitors",lines:{fillColor: "#fdf8f8"}}
+						], {
+							series: {
+								lines: {
+									show: true,
+									fill: true
+								},
+								points: {
+									show: true
+								},
+								shadowSize: 0
+							},
+							grid: {
+								hoverable: true,
+								clickable: true,
+								aboveData: true,
+								borderWidth: 0
+							},
+							legend:{
+								noColumns: 0,
+								margin: [0,-23],
+								labelBoxBorderColor: null
+							},
+							colors: C,
+							tooltip: true
+						});
+
+						function showTooltip(x, y, contents) {
+							$("<div id='flot_tip'>" + contents + "</div>").css({
+								top: y - 20,
+								left: x + 5,
+							}).appendTo("body").fadeIn(200);
+						}
+
+						var previousPoint = null;
+						$("#placeholder").bind("plothover", function (event, pos, item) {
+						if (item) {
+							if (previousPoint != item.dataIndex) {
+								previousPoint = item.dataIndex;
+								$("#flot_tip").remove();
+								var x = item.datapoint[0].toFixed(0),
+								y = item.datapoint[1].toFixed(0);
+								showTooltip(item.pageX, item.pageY,
+										 y + " " + item.series.label + " on the " + x + "th");
+								}
+								} else {
+									$("#flot_tip").remove();
+									previousPoint = null;            
+								}
+							});
+
+			// jvectormap
+			$('#map').vectorMap({
+				map: 'europe_merc_en',
+				zoomMin: '3',
+				backgroundColor: "#fff",
+				focusOn: { x: 0.5, y: 0.7, scale: 3 },
+				markers: [
+					{latLng: [42.5, 1.51], name: 'Andorra'},
+					{latLng: [43.73, 7.41], name: 'Monaco'},
+					{latLng: [47.14, 9.52], name: 'Liechtenstein'},
+					{latLng: [41.90, 12.45], name: 'Vatican City'},
+					{latLng: [43.93, 12.46], name: 'San Marino'},
+					{latLng: [35.88, 14.5], name: 'Malta'}
+				    ],
+				    markerStyle: {
+				      initial: {
+				        fill: '#fa4547',
+				        stroke: '#fa4547',
+					    "stroke-width": 6,
+					    "stroke-opacity": 0.3,
+    				      }
+				    },	
+				regionStyle: {
+					initial: {
+						fill: '#e4e4e4',
+						"fill-opacity": 1,
+						stroke: 'none',
+						"stroke-width": 0,
+						"stroke-opacity": 1
+					}
+				}
+			});
+		})(jQuery);
+		</script> 
+    </body>
+</html>
